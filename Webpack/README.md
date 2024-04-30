@@ -45,6 +45,8 @@ ________________________________________________________________________________
 - `npm install --save-dev image-webpack-loader`
 - `npm install --save-dev file-loader`
 - `npm install webpack-dev-server --save-dev`
+- `npm install html-webpack-plugin --save-dev`
+- `npm i clean-webpack-plugin`
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________

@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -8,9 +10,10 @@ module.exports = {
     footer: path.resolve(__dirname, './modules/footer/footer.js'),
   },
   output: {
-    filename: '[name]bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public')
   },
+  devtool: 'inline-source-map',
   devServer: {
     static: {
         directory: path.resolve(__dirname, 'public')
@@ -30,4 +33,7 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new CleanWebpackPlugin()
+  ],
 };
