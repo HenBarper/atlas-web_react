@@ -5,8 +5,10 @@ Atlast T5 Webpack React Project
 <a name="Sections"></a>
 1. [Learning Objectives](#learningObjectives)
 2. [Requirements](#requirements)
-3. Task 0. [Basic setup](#basicSetup)
-3. Task 1. [Learning how to use Webpack with a config file](#webpackWithConfig)
+3. [Installs](#installs)
+4. [Scripts](#scripts)
+5. Task 0. [Basic setup](#basicSetup)
+6. Task 1. [Learning how to use Webpack with a config file](#webpackWithConfig)
 
 [Credits](#Credits)
 
@@ -28,6 +30,28 @@ ________________________________________________________________________________
 - Allowed editors: vi, vim, emacs, Visual Studio Code
 - All of your files should end with a new line
 - A README.md file at the root of the folder of the project is mandatory
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+
+## Installs
+<a name="installs"></a>
+- `npm install webpack webpack-cli --save-dev`
+- `npm install html-webpack-plugin@next --save-dev`
+  - take off "@next" if not installed
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+
+## Scripts
+<a name="scripts"></a>
+```
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "dev": "webpack --mode development",
+  "build": "webpack --mode production"
+},
+```
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
