@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import _ from 'lodash';
-import './style.css';
+import '../css/main.css';
 
 let clickCount = 0;
 
+$('body').append('<p id=\'logo\'></p>');
 $('body').append('<p>Holberton Dashboard</p>');
 $('body').append('<p>Dashboard data for the students</p>');
 $('body').append('<button>Click here to get started</button>');

@@ -41,6 +41,8 @@ ________________________________________________________________________________
 - `npm install html-webpack-plugin@next --save-dev`
   - take off "@next" if not installed
 - `npm install css-loader style-loader --save-dev`
+- `npm install --save-dev image-webpack-loader`
+- `npm install --save-dev file-loader`
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
