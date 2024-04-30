@@ -7,8 +7,8 @@ Atlast T5 Webpack React Project
 2. [Requirements](#requirements)
 3. [Installs](#installs)
 4. [Scripts](#scripts)
-5. Task 0. [Basic setup](#basicSetup)
-6. Task 1. [Learning how to use Webpack with a config file](#webpackWithConfig)
+5. [Task 0. Basic setup](#basicSetup)
+6. [Task 1. Learning how to use Webpack with a config file](#webpackWithConfig)
 
 [Credits](#Credits)
 
