@@ -5,14 +5,14 @@ Atlast T5 React Intro Project
 <a name="Sections"></a>
 1. [Learning Objectives](#learningObjectives)
 2. [Requirements](#requirements)
-3. [Setup](#setup)
+3. [Terminal Commands](#terminalCommands)
 5. [Task 0. Basic application](#basicApplication)
 6. [Task 1. Embedding expressions, functions](#embeddingExpressions)
 7. [Task 2. Modify the App](#modifyTheApp)
 8. [Task 3. Modify the Notifications](#modifyTheNotification)
+9. [Task 4. Create basic tests with four tests](#createTests)
 
 [Credits](#Credits)
-
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
@@ -36,10 +36,20 @@ ________________________________________________________________________________
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
 
-## Setup
-<a name="setup"></a>
+## Terminal Commands
+<a name="terminalCommands"></a>
+### Setup
 - `npx create-react-app react_project_name`
 - `npm start` to run react app by default on localhost:3000
+### Testing
+- `npm test`
+  - Setup with just in package.json
+  ```"dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",```
+  ```"eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"```
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
@@ -140,6 +150,20 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_intro
 - File: task_2/dashboard/src/, task_2/dashboard/src/utils.js, task_2/dashboard/src/Notifications.js, task_2/dashboard/src/Notifications.css
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 4. Create basic tests with four tests
+<a name="createTests"></a>
+### in task_3/dashboard/src/utils.test.js:
+- Write a test to check that the function getFullYear returns the correct year (be careful to not create a time bomb)
+- Write a test to check that getFooterCopy returns the correct string when the argument is true or false
+- Write a test checking the returned string for getLatestNotification
+
+### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_intro
+- File: task_3/dashboard/src/utils.test.js
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
