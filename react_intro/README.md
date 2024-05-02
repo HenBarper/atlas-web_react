@@ -9,6 +9,7 @@ Atlast T5 React Intro Project
 5. [Task 0. Basic application](#basicApplication)
 6. [Task 1. Embedding expressions, functions](#embeddingExpressions)
 7. [Task 2. Modify the App](#modifyTheApp)
+8. [Task 3. Modify the Notifications](#modifyTheNotification)
 
 [Credits](#Credits)
 
@@ -108,6 +109,37 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_intro
 - File: task_2/dashboard/src/, task_2/dashboard/src/App.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 3. Modify the Notifications
+<a name="modifyTheNotification"></a>
+### in task_2/dashboard/src/utils.js:
+- Create a function named getLatestNotification that returns the following string: <strong>Urgent requirement</strong> - complete by EOD
+
+### in task_2/dashboard/src/Notifications.js in the Notifications div:
+- add a button element with inline styling (without using the CSS file):
+  - show button on right side of notifications box
+  - aria-label is Close
+  - when user clicks on the button it logs to the console Close button has been clicked
+- in the button element there should be an “x”
+- after the paragraph add an unordered list
+  - the list has the following items:
+    - The first one has a default priority and says New course available
+    - The second one has a urgent priority and says New resume available
+    - The last item has a urgent priority and should correctly displays the content of getLatestNotification using dangerouslySetInnerHTML
+    - Add the priority to the items of the list using a data attribute
+
+### in task_2/dashboard/src/Notifications.css:
+- style the notification priorities using their data attribute: set the color of default items to blue, and the color of urgent items to red.
+
+### Requirements
+- When running, there should not be any lint error in the console
+
+### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_intro
+- File: task_2/dashboard/src/, task_2/dashboard/src/utils.js, task_2/dashboard/src/Notifications.js, task_2/dashboard/src/Notifications.css
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________

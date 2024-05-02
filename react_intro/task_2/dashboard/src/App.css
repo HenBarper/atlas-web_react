@@ -16,9 +16,9 @@ hr {
   background-color: red;
 }
 
-body {
+body p, label {
   /* font-family: Arial, sans-serif; */
-  font-weight: 100;
+  font-weight: 900;
 }
 
 .App-logo {
@@ -45,6 +45,14 @@ body {
 .copyright {
   font-style: italic;
   text-align: center;
+}
+
+li[data-priority='default'] {
+  color: navy;
+}
+
+li[data-priority='urgent'] {
+  color: red;
 }
 
 
