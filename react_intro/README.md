@@ -11,6 +11,9 @@ Atlast T5 React Intro Project
 7. [Task 2. Modify the App](#modifyTheApp)
 8. [Task 3. Modify the Notifications](#modifyTheNotification)
 9. [Task 4. Create basic tests with four tests](#createTests)
+10. [Task 5. Install Enzyme](#installEnzyme)
+11. [Task 6. Create React tests](#createReactTests)
+12. [Task 7. Deploy to a GitHub page](#deployToGithubPages)
 
 [Credits](#Credits)
 __________________________________________________________________________________________________________________________________________
@@ -170,6 +173,57 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_intro
 - File: task_3/dashboard/src/utils.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 5. Install Enzyme
+<a name="installEnzyme"></a>
+- Install Enzyme and the enzyme adapter with npm
+- Create a file named setupTests.js and configure the adapter for Enzyme
+
+### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_intro
+- File: task_3/dashboard/src/setupTests.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 6. Create React tests
+<a name="createReactTests"></a>
+### in task_3/dashboard/src/App.test.js create four tests:
+- test that App renders without crashing
+- verify that App renders a div with the class App-header
+- verify that App renders a div with the class App-body
+- verify that App renders a div with the class App-footer
+
+### in task_3/dashboard/src/Notifications.test.js create three tests
+- test that Notifications renders without crashing
+- verify that Notifications renders three list items
+- verify that Notifications renders the text Here is the list of notifications
+
+### Requirements:
+- When running the test suites, you should see the following result
+- You must use shallow rendering to write the React tests
+```
+Test Suites: 2 passed, 2 total
+Tests: 7 passed, 7 total
+```
+### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_intro
+- File: task_3/dashboard/src/App.test.js, task_3/dashboard/src/Notifications.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 7. Deploy to a GitHub page
+<a name="deployToGithubPages"></a>
+### Deploy your application to GitHub Pages using gh-pages branch and create-react-app
+- Your application should be working correctly when accessing the GitHub URL.
+
+### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_intro
+- File: task_4/
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
