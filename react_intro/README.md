@@ -41,6 +41,8 @@ ________________________________________________________________________________
 ### Setup
 - `npx create-react-app react_project_name`
 - `npm start` to run react app by default on localhost:3000
+- `npm install enzyme @cfaester/enzyme-adapter-react-18 --save-dev`
+- `npm install --save-dev gh-pages`
 ### Testing
 - `npm test`
   - Setup with jest in package.json
