@@ -44,12 +44,16 @@ ________________________________________________________________________________
 ### Testing
 - `npm test`
   - Setup with just in package.json
-  ``` "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0", ```
-  ``` "eslintConfig": {
+  ```
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    ```
+  ```
+  "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest" ```
+      "react-app/jest"
+      ```
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
