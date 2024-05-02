@@ -43,7 +43,7 @@ ________________________________________________________________________________
 - `npm start` to run react app by default on localhost:3000
 ### Testing
 - `npm test`
-  - Setup with just in package.json
+  - Setup with jest in package.json
   ```
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
