@@ -59,6 +59,11 @@ ________________________________________________________________________________
       "react-app",
       "react-app/jest"
       ```
+### Deploying
+- `npm run deploy` runs predeploy
+### Webpack
+- `npm install --save-dev webpack webpack-cli webpack-dev-server`
+- `npm install --save-dev html-webpack-plugin style-loader css-loader file-loader image-webpack-loader babel-loader @babel/core @babel/preset-env @babel/preset-react`
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________

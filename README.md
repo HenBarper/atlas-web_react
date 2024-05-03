@@ -13,6 +13,11 @@ Atlast T5 React Projects
 __________________________________________________________________________________________________________________________________________
 ## Project 1: Webpack
 <a name="webpack"></a>
+### Resources
+- [https://webpack.js.org/concepts/](https://webpack.js.org/concepts/)
+- [https://www.sitepoint.com/webpack-beginner-guide/](https://www.sitepoint.com/webpack-beginner-guide/)
+- [https://docs.npmjs.com/cli/v10/configuring-npm/package-json](https://docs.npmjs.com/cli/v10/configuring-npm/package-json)
+
 ### Learning Objectives
 - How to setup Webpack for a basic project
 - Entry points, output, and loaders
