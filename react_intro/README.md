@@ -14,6 +14,10 @@ Atlast T5 React Intro Project
 10. [Task 5. Install Enzyme](#installEnzyme)
 11. [Task 6. Create React tests](#createReactTests)
 12. [Task 7. Deploy to a GitHub page](#deployToGithubPages)
+13. [Task 8. Create a project using Webpack](#createUsingWebpack)
+14. [Task 9. Install Babel](#installBabel)
+15. [Task 10. Reorganize the files](#reorganizeFiles)
+16. [Task 11. Testing](#testing)
 
 [Credits](#Credits)
 __________________________________________________________________________________________________________________________________________
@@ -229,6 +233,83 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_intro
 - File: task_4/
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 8. Create a project using Webpack
+<a name="createUsingWebpack"></a>
+### Without reusing create-react-app or the code from the previous exercise, start a brand new npm project
+
+### Reusing what you learned during the Webpack module:
+- Set up a system to output a bundle.js file in a dist folder
+- Set up a dev server with hot reloading
+- Create a src folder that will contain your Javascript
+- Set up a simple html file in the dist folder that will import the bundle file in the body tag.
+
+### Install and configure the various plugins to support:
+- inline source map
+- style loader
+- css loader
+- image webpack loader
+
+### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_intro
+- File: task_5/dashboard/config/webpack.config.js, task_5/dashboard/dist/index.html, task_5/dashboard/src/index.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 9. Install Babel
+<a name="installBabel"></a>
+- Install Babel, and in task_5/dashboard/.babelrc, add the presets for preset-env and preset-react
+- Add a babel-loader to the Webpack configuration so you can support js and jsx files
+- Import the files that you wrote in the previous task. All the Javascript and React code should be within the src folder
+
+### At this point, running webpack-dev-server should correctly execute your code, and you should be able to see the dashboard like in the last task
+
+### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_intro
+- File: task_5/dashboard/.babelrc, task_5/dashboard/config/webpack.config.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 10. Reorganize the files
+<a name="reorganizeFiles"></a>
+### Let’s reorganize the files in our project:
+- Every file related to the App, should be within a App folder
+- Every file related to the Notifications, should be within a Notifications folder
+- Every file related to the utils functions, should be within a utils folder
+- Every asset file should be within the assets folder
+- Set up the favicon.ico in the dist folder
+- Webpack config file should be within a config folder if it isn’t already
+
+### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_intro
+- File: task_5/dashboard/src/App/App.css, task_5/dashboard/src/App/App.js, task_5/dashboard/src/App/App.test.js, task_5/dashboard/src/Notifications/Notifications.css, task_5/dashboard/src/Notifications/Notifications.js, task_5/dashboard/src/Notifications/Notifications.test.js, task_5/dashboard/src/utils/utils.js, task_5/dashboard/src/utils/utils.test.js, task_5/dashboard/config/webpack.config.js, task_5/dashboard/src/assets/holberton-logo.jpg, task_5/dashboard/dist/favicon.ico
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 11. Testing
+<a name="testing"></a>
+### Install Jest and Enzyme to run your test suites
+
+### move the setupTests.js file to config folder if you have not already
+
+### Requirements:
+- Your package.json should have the two following scripts:
+```
+"start": "webpack-dev-server --mode development --config config/webpack.config.js",
+"test": "jest"
+```
+- Running the first script should start your dev server and build without any error
+- Running the second script should start your test suites and pass for each test
+
+### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_intro
+- File: task_5/dashboard/config/setupTests.js, task_5/dashboard/package.json
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
