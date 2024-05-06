@@ -1,4 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -13,6 +12,9 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     port: 3000,
+    static: {
+      directory: path.join(__dirname, '../dist'),
+    },
     compress: true,
     hot: true,
   },
@@ -38,9 +40,4 @@ module.exports = {
       },
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Webpack Output',
-    }),
-  ],
 };
