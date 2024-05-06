@@ -19,7 +19,6 @@ Atlast T5 React Intro Project
 15. [Task 10. Reorganize the files](#reorganizeFiles)
 16. [Task 11. Testing](#testing)
 
-[Credits](#Credits)
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
