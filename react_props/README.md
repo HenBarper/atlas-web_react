@@ -9,6 +9,7 @@ Atlast T5 React Props Project
 5. [Task 0. Basic components](#basicComponents)
 6. [Task 1. Write the tests for each component](#writeTests)
 7. [Task 2. Split the Notifications component](#splitNotifications)
+8. [Task 3. 3. Checking the application using the React extension](#checkingTheApplication)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -173,5 +174,19 @@ Tests: 21 passed, 21 total
 - GitHub repository: atlas-web_react
 - Directory: react_props
 - File: task_2/dashboard/src/Notifications/NotificationItem.js, task_2/dashboard/src/Notifications/NotificationItem.test.js, task_2/dashboard/src/Notifications/Notifications.js, task_2/dashboard/src/Notifications/Notifications.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 3. Checking the application using the React extension
+<a name="checkingTheApplication"></a>
+
+#### Using the React extension in Chrome:
+- Modify the type of the first NotificationItem to change from “default” to “urgent”. The first notification should change color to red, take a screenshot
+- Profile the load of the application and note which Component is the longest to render after App, take a screenshot
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_props
+- File: task_3/change_property.png, task_3/profiler.png
 
 [Back to top](#Sections)
