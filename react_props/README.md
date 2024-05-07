@@ -7,6 +7,7 @@ Atlast T5 React Props Project
 2. [Requirements](#requirements)
 3. [Terminal Commands](#terminalCommands)
 5. [Task 0. Basic components](#basicComponents)
+6. [Task 1. Write the tests for each component](#writeTests)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -85,5 +86,48 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_props
 - File: task_0/dashboard/dist/index.html, task_0/dashboard/src/App/App.js, task_0/dashboard/src/Footer/Footer.css, task_0/dashboard/src/Footer/Footer.js, task_0/dashboard/src/Footer/Footer.test.js, task_0/dashboard/src/Header/Header.css, task_0/dashboard/src/Header/Header.js, task_0/dashboard/src/Header/Header.test.js, task_0/dashboard/src/Login/Login.css, task_0/dashboard/src/Login/Login.js, task_0/dashboard/src/Login/Login.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 1. Write the tests for each component
+<a name="writeTests"></a>
+
+#### To develop your tests faster, you can watch them. The test suite will run for every change you make:
+- Add the following script to task_1/package.json: `"test-watch": "jest --watch"`
+- Run your suite using npm run test-watch
+
+### Header.test.js
+#### Import your new Header component within the test, and write two checks:
+- Shallow render the Header component to verify it renders without crashing
+- Verify that the components render img and h1 tags
+
+### Login.test.js
+#### Import your new Login component within the test, and write two checks:
+- Shallow render the Login component to verify it renders without crashing
+- Verify that the components renders 2 input tags and 2 label tags
+
+### Footer.test.js
+#### Import your new Footer component within the test, and write two checks:
+- Shallow render the Footer component to verify it renders without crashing
+- Verify that the components at the very least render the text “Copyright”
+
+### App.test.js
+#### Modify the App.test.js file, and add four checks:
+- It should contain the Notifications component
+- It should contain the Header component
+- It should contain the Login component
+- It should contain the Footer component
+
+#### Requirements:
+- At this point, running the test suites, should show:
+```
+Test Suites: 6 passed, 6 total
+Tests: 17 passed, 17 total
+```
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_props
+- File: task_1/package.json, task_1/dashboard/src/Header/Header.test.js, task_1/dashboard/src/Footer/Footer.test.js, task_1/dashboard/src/Login/Login.test.js, task_1/dashboard/src/App/App.test.js
 
 [Back to top](#Sections)
