@@ -1,4 +1,5 @@
 .Notifications {
+  width: 100%;
   border: 3px dotted red;
   padding-top: 1rem;
   position: relative;
