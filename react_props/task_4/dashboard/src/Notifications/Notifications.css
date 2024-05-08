@@ -1,5 +1,16 @@
+.wholeNotification {
+  /* display: inline; */
+  position: absolute;
+  right: 1%;
+  width: 40%;
+}
+
+.menuItem {
+  text-align: right;
+}
+
 .Notifications {
-  width: 100%;
+  /* width: 50%; */
   border: 3px dotted red;
   padding-top: 1rem;
   position: relative;

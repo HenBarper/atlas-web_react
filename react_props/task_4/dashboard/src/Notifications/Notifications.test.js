@@ -30,4 +30,25 @@ describe('Notifications component tests', () => {
 
         expect(firstNotificationItem.shallow().text()).toBe('New Course Available');
     });
+
+    // Notification rendering tests with displayDrawer
+    test('Menu is being displayed when displayDrawer is false', () => {
+        wrapper = shallow(<Notifications displayDrawer={false} />);
+        expect(wrapper.find('.menuItem').exists()).toBe(true);
+    });
+
+    test('div.Notifications is not being displayed when displayDrawer is false', () => {
+        wrapper = shallow(<Notifications displayDrawer={false} />);
+        expect(wrapper.find('.Notifications').exists()).toBe(false);
+    });
+
+    test('Menu is being displayed when displayDrawer is true', () => {
+        wrapper = shallow(<Notifications displayDrawer={true} />);
+        expect(wrapper.find('.menuItem').exists()).toBe(true);
+    });
+
+    test('div.Notifications is being displayed when displayDrawer is true', () => {
+        wrapper = shallow(<Notifications displayDrawer={true} />);
+        expect(wrapper.find('.Notifications').exists()).toBe(true);
+    });
 });

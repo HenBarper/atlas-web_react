@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer'
 function App({ isLoggedIn = false }) {
   return (
     <>
-      <Notification />
+      <Notification displayDrawer={true} />
       <div className='App'>
         <Header />
         

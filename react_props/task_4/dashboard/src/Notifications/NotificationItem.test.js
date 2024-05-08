@@ -4,7 +4,9 @@ import NotificationItem from './NotificationItem';
 
 describe('NotificationItem component tests', () => {
     test('NotificationItem renders without crashing', () => {
-        const wrapper = shallow(<NotificationItem />);
+        const type = 'default';
+        const value = 'test';
+        const wrapper = shallow(<NotificationItem type={type} value={value} />);
         expect(wrapper.exists()).toBe(true);
     });
 
@@ -21,8 +23,10 @@ describe('NotificationItem component tests', () => {
     });
 
     test('Renders the correct html with a dummy html prop', () => {
+        const type = 'default';
+        const value = 'test';
         const html = { __html: '<u>test</u>' };
-        const wrapper = shallow(<NotificationItem html={html} />);
+        const wrapper = shallow(<NotificationItem type={type} value={value} html={html} />);
 
         const liItem = wrapper.find('li');
         expect(liItem.exists()).toBe(true);
