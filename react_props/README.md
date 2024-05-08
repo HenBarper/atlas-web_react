@@ -5,13 +5,12 @@ Atlast T5 React Props Project
 <a name="Sections"></a>
 1. [Learning Objectives](#learningObjectives)
 2. [Requirements](#requirements)
-3. [Terminal Commands](#terminalCommands)
-5. [Task 0. Basic components](#basicComponents)
-6. [Task 1. Write the tests for each component](#writeTests)
-7. [Task 2. Split the Notifications component](#splitNotifications)
-8. [Task 3. Checking the application using the React extension](#checkingTheApplication)
-9. [Task 4. Props types & Default props & Shapes](#propsTypesDefaultsAndShapes)
-10.[Task 5. Shapes, Loops, and Keys](#shapesLoopsKeys)
+3. [Task 0. Basic components](#basicComponents)
+4. [Task 1. Write the tests for each component](#writeTests)
+5. [Task 2. Split the Notifications component](#splitNotifications)
+6. [Task 3. Checking the application using the React extension](#checkingTheApplication)
+7. [Task 4. Props types & Default props & Shapes](#propsTypesDefaultsAndShapes)
+8.[Task 5. Shapes, Loops, and Keys](#shapesLoopsKeys)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -31,12 +30,6 @@ ________________________________________________________________________________
 - Allowed editors: vi, vim, emacs, Visual Studio Code
 - All your files should end with a new line
 - A README.md file, at the root of the folder of the project, is mandatory
-
-[Back to top](#Sections)
-__________________________________________________________________________________________________________________________________________
-## Terminal Commands
-<a name="terminalCommands"></a>
-- 
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
