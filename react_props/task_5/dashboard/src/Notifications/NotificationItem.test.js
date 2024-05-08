@@ -31,6 +31,6 @@ describe('NotificationItem component tests', () => {
         const liItem = wrapper.find('li');
         expect(liItem.exists()).toBe(true);
 
-        expect(liItem.prop('dangerouslySetInnerHTML').__html).toBe(html);
+        expect(liItem.prop('dangerouslySetInnerHTML').__html).toBe("<u>test</u>");
     });
 });

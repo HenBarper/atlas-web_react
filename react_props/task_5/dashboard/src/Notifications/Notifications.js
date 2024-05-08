@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import './Notifications.css'
 import { getLatestNotification } from '../utils/utils'
 import NotificationItem from './NotificationItem'
+import { NotificationItemShape } from './NotificationItemShape';
 
-function Notification({ displayDrawer = true }) {
+function Notification({ displayDrawer = true, listNotifications = [] }) {
   return (
     <>
       <div className='wholeNotification'>
@@ -22,12 +23,18 @@ function Notification({ displayDrawer = true }) {
             >
             <span style={{ fontSize: '24px' }} aria-hidden='true'>&times;</span>
             </button>
-            <p>Here is the list of notifications</p>
-            <ul>
-              <NotificationItem type='default' value='New Course Available' />
-              <NotificationItem type='urgent' value='New Resume Available' />
-              <NotificationItem type='urgent' html={{ __html: getLatestNotification() }} />
-            </ul>
+            {listNotifications.length === 0 ? (
+              <p>No new notification for now</p>
+            ) : (
+              <>
+                <p>Here is the list of notifications</p>
+                <ul>
+                  {listNotifications.map((notification) => (
+                    <NotificationItem key={notification.id} html={notification.html} type={notification.type} value={notification.value} />
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
         )}
       </div>
@@ -36,7 +43,8 @@ function Notification({ displayDrawer = true }) {
 }
 
 Notification.propTypes = {
-  displayDrawer: PropTypes.bool
+  displayDrawer: PropTypes.bool,
+  listNotifications: PropTypes.arrayOf(NotificationItemShape)
 };
 
 export default Notification

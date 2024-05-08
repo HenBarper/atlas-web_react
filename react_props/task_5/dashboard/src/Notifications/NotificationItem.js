@@ -3,9 +3,16 @@ import PropTypes from 'prop-types';
 
 function NotificationItem({ type = 'default', value, html }) {
   return (
-    <li data-priority={type} dangerouslySetInnerHTML={html ? { __html: html } : null}>
+    <>
+      {/* <li data-priority={type} dangerouslySetInnerHTML={html ? { __html: html } : null}>
       {!html ? value : null}
-    </li>
+      </li> */}
+      {html ? (
+        <li data-priority={type} dangerouslySetInnerHTML={html}></li>
+      ) : (
+        <li data-priority={type}>{value}</li>
+      )}
+    </>
   );
 };
 
