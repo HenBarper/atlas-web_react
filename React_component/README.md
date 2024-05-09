@@ -8,6 +8,7 @@ Atlast T5 React Props Project
 4. [Task 0. Commence with class components](#classComponents)
 5. [Task 1. Lifecycles](#lifeCycles)
 6. [Task 2. Handling Events](#handlingEvents)
+7. [Task 3. Reusable comments & specialization](#reuseableComments)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -110,6 +111,35 @@ ________________________________________________________________________________
 #### Repo:
 - GitHub repository: atlas-web_react
 - Directory: React_component
-- File: task_2/dashboard/src/Notifications/NotificationItem.js, task_2/dashboard/src/Notifications/NotificationItem.test.js, task_2/dashboard/src/Notifications/Notifications.js, task_2/dashboard/src/Notifications/Notifications.test.js
+- File: task_2/dashboar
+__________________________________________________________________________________________________________________________________________
+## Task 3. Reusable comments & specialization
+<a name="reuseableComments"></a>
+
+### Containment
+#### Create a new component named BodySection. The component does not know its children. It should output the following:
+- A div with the class bodySection
+- Within the div, a h2 element containing a title passed as a prop
+- Under the h2 the children of BodySection
+
+### Tips:
+#### Rendering the following
+```
+<BodySection title="test">
+  <p>test</p>
+</BodySection>
+Should generate:
+```
+```
+<div className="bodySection">
+  <h2>test</h2>
+  <p>test</p>
+</div>
+```
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_component
+- File: task_3/dashboard/src/BodySection/BodySection.js
 
 [Back to top](#Sections)
