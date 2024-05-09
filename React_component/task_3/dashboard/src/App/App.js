@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Notification from '../Notifications/Notifications';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
+import BodySection from '../BodySection/BodySection';
 import CourseList from '../CourseList/CourseList';
 import Footer from '../Footer/Footer'
 import { getLatestNotification } from '../utils/utils';
@@ -69,6 +70,9 @@ class App extends React.Component {
           ) : (
               <Login />
           )}
+          <BodySection title="test">
+            <p>test</p>
+          </BodySection>
           <Footer />
         </div>
       </>
