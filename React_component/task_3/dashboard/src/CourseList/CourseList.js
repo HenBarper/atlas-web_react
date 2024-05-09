@@ -27,7 +27,6 @@ function CourseList({ listCourses = [] }) {
           <CourseListRow  isHeader={false} textFirstCell='React' textSecondCell='40' /> */}
         </tbody>
       </table>
-      <hr></hr>
     </>
   );
 }

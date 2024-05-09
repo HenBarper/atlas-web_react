@@ -12,7 +12,6 @@ function Login() {
         <input className='lilSpace' type="password" id="pwd" name="pwd"/>
         <button className='lilSpace'>OK</button>
       </main>
-      <hr></hr>
     </>
   );
 }
