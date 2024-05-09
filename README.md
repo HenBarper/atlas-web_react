@@ -39,13 +39,13 @@ ________________________________________________________________________________
 <a name="reactIntro"></a>
 
 ### Resources
-[React Official Website](https://react.dev/)
-[Getting started with React](https://www.taniarascia.com/getting-started-with-react/)
-[React overview](https://legacy.reactjs.org/docs/getting-started.html)
-[create-react-app](https://github.com/facebook/create-react-app)
-[React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-[What is Babel?](https://babeljs.io/docs/)
-[Enzyme](https://enzymejs.github.io/enzyme/docs/api/shallow.html)
+- [React Official Website](https://react.dev/)
+- [Getting started with React](https://www.taniarascia.com/getting-started-with-react/)
+- [React overview](https://legacy.reactjs.org/docs/getting-started.html)
+- [create-react-app](https://github.com/facebook/create-react-app)
+- [React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- [What is Babel?](https://babeljs.io/docs/)
+- [Enzyme](https://enzymejs.github.io/enzyme/docs/api/shallow.html)
 
 ### Learning Objectives
 - How to create a basic Javascript application using React
@@ -68,13 +68,13 @@ ________________________________________________________________________________
 <a name="reactProps"></a>
 
 ### Resources
-[React Official Website](https://react.dev/)
-[Getting started with React](https://www.taniarascia.com/getting-started-with-react/)
-[React overview](https://react.dev/learn)
-[React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-[Enzyme](https://enzymejs.github.io/enzyme/docs/api/shallow.html)
-[React Fragments](https://react.dev/reference/react/Fragment)
-[Typechecking with PropTypes](https://www.npmjs.com/package/prop-types)
+- [React Official Website](https://react.dev/)
+- [Getting started with React](https://www.taniarascia.com/getting-started-with-react/)
+- [React overview](https://react.dev/learn)
+- [React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- [Enzyme](https://enzymejs.github.io/enzyme/docs/api/shallow.html)
+- [React Fragments](https://react.dev/reference/react/Fragment)
+- [Typechecking with PropTypes](https://www.npmjs.com/package/prop-types)
 
 ### Learning Objectives
 - How to create basic React components using functions
@@ -97,14 +97,14 @@ ________________________________________________________________________________
 <a name="reactComponents"></a>
 
 ### Resources
-[React components](https://legacy.reactjs.org/docs/react-component.html)
-[React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-[Enzyme Shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html)
-[Enzyme Mount](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/mount.html)
-[Enzyme Unmount](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/unmount.html)
-[React Pure components](https://legacy.reactjs.org/docs/react-api.html)
-[React Higher Order Components](https://legacy.reactjs.org/docs/higher-order-components.html)
-[Jest mock function](https://jestjs.io/docs/jest-object)
+- [React components](https://legacy.reactjs.org/docs/react-component.html)
+- [React Developer Tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- [Enzyme Shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html)
+- [Enzyme Mount](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/mount.html)
+- [Enzyme Unmount](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/unmount.html)
+- [React Pure components](https://legacy.reactjs.org/docs/react-api.html)
+- [React Higher Order Components](https://legacy.reactjs.org/docs/higher-order-components.html)
+- [Jest mock function](https://jestjs.io/docs/jest-object)
 
 ### Learning Objectives
 - When to use a Class or a function to create a component
