@@ -97,4 +97,23 @@ describe('Notifications component tests', () => {
         expect(wrapper.text().includes('Here is the list of notifications')).toBe(false);
         expect(wrapper.text().includes('No new notification for now')).toBe(true);
     });
+
+    test('when calling the function markAsRead on an instance of the component, the spy is being called with the right message', () => {
+        const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    
+        const listNotifications = [
+            { id: 1, type: 'default', value: 'New Course Available' },
+            { id: 2, type: 'urgent', value: 'New Resume Available' },
+            { id: 3, type: 'urgent', html: { __html: 'Urgent requirement - complete by EOD' } },
+        ];
+    
+        wrapper = shallow(<Notifications listNotifications={listNotifications} />);
+    
+        const instance = wrapper.instance();
+        instance.markAsRead(1);
+    
+        expect(consoleLogSpy).toHaveBeenCalledWith('Notification 1 has been marked as read');
+    
+        consoleLogSpy.mockRestore();
+    });
 });

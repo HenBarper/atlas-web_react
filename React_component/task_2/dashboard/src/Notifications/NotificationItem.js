@@ -1,31 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-function NotificationItem({ type = 'default', value, html }) {
+function NotificationItem({ id, type = 'default', value, html, markAsRead }) {
+  // const handleClick = () => {
+  //   markAsRead(id);
+  // };
+
   return (
     <>
-      {/* <li data-priority={type} dangerouslySetInnerHTML={html ? { __html: html } : null}>
-      {!html ? value : null}
-      </li> */}
       {html ? (
-        <li data-priority={type} dangerouslySetInnerHTML={html}></li>
+        <li data-priority={type} dangerouslySetInnerHTML={html} onClick={() => markAsRead(id)}></li>
       ) : (
-        <li data-priority={type}>{value}</li>
+        <li data-priority={type} onClick={() => markAsRead(id)}>{value}</li>
       )}
     </>
   );
 };
 
 NotificationItem.propTypes = {
+  id: PropTypes.number.isRequired,
   html: PropTypes.shape({
-    __html: PropTypes.string.isRequired,
+      __html: PropTypes.string.isRequired,
   }),
   type: PropTypes.string.isRequired,
-  value: PropTypes.string
+  value: PropTypes.string,
+  markAsRead: PropTypes.func
 };
-
-// NotificationItem.defaultProps = {
-//   type: 'default'
-// };
 
 export default NotificationItem
