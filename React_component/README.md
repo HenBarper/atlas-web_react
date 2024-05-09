@@ -9,6 +9,10 @@ Atlast T5 React Props Project
 5. [Task 1. Lifecycles](#lifeCycles)
 6. [Task 2. Handling Events](#handlingEvents)
 7. [Task 3. Reusable comments & specialization](#reuseableComments)
+8. [Task 4. Specialization](#specialization)
+9. [Task 5. Use the new components](#useNewComponents)
+10. [Task 6. Test the new components](testNewComponents)
+11. [Task 7. Create WithLogging HOC](#createWithLoggingHOC)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -141,5 +145,91 @@ Should generate:
 - GitHub repository: atlas-web_react
 - Directory: React_component
 - File: task_3/dashboard/src/BodySection/BodySection.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 4. Specialization
+<a name="specialization"></a>
+
+#### in task_3/dashboard/src/BodySection/BodySectionWithMarginBottom.js, create a new component named BodySectionWithMarginBottom. The component does not know its children. It should output the following:
+- A div with the class bodySectionWithMargin
+- Within the div, a BodySection element with the same props passed to bodySectionWithMarginBottom
+
+#### in task_3/dashboard/src/BodySection/BodySectionWithMarginBottom.css
+- Set the style for the class bodySectionWithMargin with a margin bottom of 40px
+- Import the styling into the BodySectionWithMarginBottom component
+
+### Requirements:
+- Make sure to define the propTypes for both props
+- Do not repeat each props manually and use the spread operator
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_component
+- File: task_3/dashboard/src/BodySection/BodySectionWithMarginBottom.js, task_3/dashboard/src/BodySection/BodySection.css
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 5. Use the new components
+<a name="useNewComponents"></a>
+
+#### in task_3/dashboard/src/App/App.js, modify the App component:
+- Wrap the CourseList component with the newly created BodySectionWithMarginBottom component. The title should be Course list
+- Wrap the Login component with the newly created BodySectionWithMarginBottom component. The title should be Log in to continue
+- Using the BodySection component, add a new block with the title News from the School. The component should contain a paragraph with some random text
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_component
+- File: task_3/dashboard/src/App/App.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 6. Test the new components
+<a name="testNewComponents"></a>
+
+#### in task_3/dashboard/src/BodySection/BodySection.test.js:
+- Add one test checking that shallowing the component should render correctly the children and one h2 element
+
+#### E.g. with the following code:
+```
+<BodySection title="test title">
+  <p>test children node</p>
+</BodySection>
+```
+
+#### You should check that:
+- There is one h2 element and it includes the text test title
+- There is one p element and it includes the text test children node
+
+#### in task_3/dashboard/src/BodySection/BodySectionWithMarginBottom.test.js:
+- Add one test checking that shallowing the component should render correctly a BodySection component and that the props are passed correctly to the child component
+
+### Requirements:
+- Make sure that the CSS is correctly applied to your component
+- The console in your browser should not show any error or warning
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_component
+- File: task_3/dashboard/src/BodySection/BodySection.test.js, task_3/dashboard/src/BodySection/BodySectionWithMarginBottom.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 7. Create WithLogging HOC
+<a name="createWithLoggingHOC"></a>
+
+#### We would like to add a way to log to the console every time a component has been mounted and every time it is about to unmount.
+
+### To not repeat the same code everywhere, create a HOC component in task_4/dashboard/src/HOC/WithLogging.js:
+- The component should log to the console Component NAME_OF_THE_WRAPPED_COMPONENT is mounted on componentDidMount()
+- The component should log to the console Component NAME_OF_THE_WRAPPED_COMPONENT is going to unmount on componentWillUnmount()
+- Modify the displayName of the HOC to always display WithLogging(NAME_OF_THE_WRAPPED_COMPONENT) in the React Chrome Extension or for debugging
+- NAME_OF_THE_WRAPPED_COMPONENT should be the name of the wrapped component or class. If the wrapped element has no name it should default to Component
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_component
+- File: task_4/dashboard/src/HOC/WithLogging.js
 
 [Back to top](#Sections)
