@@ -67,17 +67,19 @@ class App extends React.Component {
         <div className='App'>
           <Header />
           {isLoggedIn ? (
-              <BodySectionWithMarginBottom title="Course list">
-                  <CourseList listCourses={listCourses} />
-              </BodySectionWithMarginBottom>
+              <>
+                <BodySectionWithMarginBottom title="Course list">
+                    <CourseList listCourses={listCourses} />
+                </BodySectionWithMarginBottom>
+                <BodySection title="News from the School">
+                    <p>Yee-haw!</p>
+                </BodySection>
+              </>
           ) : (
               <BodySectionWithMarginBottom title="Log in to continue">
                   <Login />
               </BodySectionWithMarginBottom>
           )}
-          <BodySection title="News from the School">
-            <p>Yee-haw!</p>
-          </BodySection>
           <hr></hr>
           <Footer />
         </div>
