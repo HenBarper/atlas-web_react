@@ -14,6 +14,7 @@ Atlast T5 React Props Project
 10. [Task 6. Test the new components](testNewComponents)
 11. [Task 7. Create WithLogging HOC](#createWithLoggingHOC)
 12. [Task 8. Write a test for the HOC](#writeTestForHOC)
+13. [Task 9. Declare a pure component](#declarePureComponent)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -254,5 +255,18 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: React_component
 - File: task_4/dashboard/src/HOC/WithLogging.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 9. Declare a pure component
+<a name="declarePureComponent"></a>
+
+#### In task_5/dashboard/src/Notifications/NotificationItem.js:
+- Modify the component to make it “pure”. Which means that it will only update when its props and state are different
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_component
+- File: task_5/dashboard/src/Notifications/NotificationItem.js
 
 [Back to top](#Sections)
