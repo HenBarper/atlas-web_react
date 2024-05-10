@@ -1,5 +1,5 @@
-# React Props
-Atlast T5 React Props Project
+# React Component
+Atlast T5 React Component Project
 
 ## Sections
 <a name="Sections"></a>
