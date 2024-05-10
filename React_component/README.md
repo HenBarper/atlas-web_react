@@ -15,6 +15,7 @@ Atlast T5 React Props Project
 11. [Task 7. Create WithLogging HOC](#createWithLoggingHOC)
 12. [Task 8. Write a test for the HOC](#writeTestForHOC)
 13. [Task 9. Declare a pure component](#declarePureComponent)
+14. [Task 10. Make your own pure component](#makeYourOwnPureComponent)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -268,5 +269,19 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: React_component
 - File: task_5/dashboard/src/Notifications/NotificationItem.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 10. Make your own pure component
+<a name="makeYourOwnPureComponent"></a>
+
+#### In task_5/dashboard/src/Notifications/Notifications.js:
+- Modify the file so it only updates itself when the new property listNotifications has a longer list of elements than the previously
+- You must implement the function shouldComponentUpdate to add this performance optimization
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_component
+- File: task_5/dashboard/src/Notifications/Notifications.js
 
 [Back to top](#Sections)
