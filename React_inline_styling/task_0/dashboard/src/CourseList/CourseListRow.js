@@ -7,7 +7,7 @@ function CourseListRow({ isHeader = false, textFirstCell, textSecondCell = null 
     if (textSecondCell === null) {
       return (
         <tr>
-          <th className='topHeader' colSpan="2">{textFirstCell}</th>
+          <th style={{ backgroundColor: '#deb5b545' }} className='topHeader' colSpan="2">{textFirstCell}</th>
         </tr>
       );
     } else {
@@ -20,7 +20,7 @@ function CourseListRow({ isHeader = false, textFirstCell, textSecondCell = null 
     }
   } else {
     return (
-      <tr>
+      <tr style={{ backgroundColor: '#f5f5f5ab' }}>
         <td>{textFirstCell}</td>
         <td>{textSecondCell}</td>
       </tr>
