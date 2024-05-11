@@ -2,12 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import './CourseList.css'
 
+const colorOne = { backgroundColor: '#deb5b545' };
+const colorTwo = { backgroundColor: '#f5f5f5ab' };
+
 function CourseListRow({ isHeader = false, textFirstCell, textSecondCell = null }) {
   if (isHeader === true) {
     if (textSecondCell === null) {
       return (
         <tr>
-          <th style={{ backgroundColor: '#deb5b545' }} className='topHeader' colSpan="2">{textFirstCell}</th>
+          <th style={colorOne} className='topHeader' colSpan="2">{textFirstCell}</th>
         </tr>
       );
     } else {
@@ -20,7 +23,7 @@ function CourseListRow({ isHeader = false, textFirstCell, textSecondCell = null 
     }
   } else {
     return (
-      <tr style={{ backgroundColor: '#f5f5f5ab' }}>
+      <tr style={colorTwo}>
         <td>{textFirstCell}</td>
         <td>{textSecondCell}</td>
       </tr>
