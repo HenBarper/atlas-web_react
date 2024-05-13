@@ -94,25 +94,26 @@ const styles = StyleSheet.create({
     fontWeight: 900
   },
 
-  width250: {
+  appLogo: {
     width: '250px'
   },
-
-  paddingBottom25rem: {
+  
+  appBody: {
     paddingBottom: '25rem'
   },
-
-  marginTop3rem: {
-    marginTop: '3rem'
+  
+  login: {
+    marginTop: '3rem',
+    marginLeft: '2rem'
   },
-
-  marginLeft2rem: {
+  
+  email: {
     marginLeft: '2rem'
   },
 
-  marginLeft05rem: {
+  lilSpace: {
     marginLeft: '0.5rem'
-  }
+  },
 });
 
 export default App;
