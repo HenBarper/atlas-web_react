@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite';
 import PropTypes from 'prop-types';
-// import './Notifications.css'
 import NotificationItem from './NotificationItem'
 import { NotificationItemShape } from './NotificationItemShape';
 

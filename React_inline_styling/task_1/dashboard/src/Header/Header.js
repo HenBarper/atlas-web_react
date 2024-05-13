@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite';
 import logo from '../assets/holberton-logo.jpg';
-// import './Header.css';
 
 function Header() {
   return (
