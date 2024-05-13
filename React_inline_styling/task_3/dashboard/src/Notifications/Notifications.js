@@ -53,7 +53,7 @@ class Notification extends Component {
               ) : (
                 <>
                   <p>Here is the list of notifications</p>
-                  <ul>
+                  <ul className={css(styles.ul)}>
                     {listNotifications.map((notification) => (
                       notification.type === 'urgent' ? (
                         <NotificationItem key={notification.id} id={notification.id} html={notification.html} type={notification.type} value={notification.value} markAsRead={this.markAsRead} />
@@ -76,17 +76,36 @@ const styles = StyleSheet.create({
   wholeNotification: {
     position: 'absolute',
     right: '1%',
-    width: '40%'
+    width: '40%',
+    backgroundColor: 'none',
+    '@media (max-width: 900px)': {
+      backgroundColor: 'white',
+      width: '98vw',
+      height: '100vh',
+      margin: 0,
+      padding: 0,
+      fontSize: '20px',
+    },
   },
   
   menuItem: {
     textAlign: 'right'
   },
   
+  ul: {
+    '@media (max-width: 900px)': {
+      padding: '0'
+    },
+  },
+
   Notifications: {
     border: '3px dotted red',
     paddingTop: '1rem',
-    position: 'relative'
+    position: 'relative',
+    '@media (max-width: 900px)': {
+      border: 'none',
+      paddingTop: '1rem',
+    },
   },
   
   // li[data-priority='default']: {
