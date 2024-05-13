@@ -7,6 +7,7 @@ Atlast T5 React Inline Styling Project
 2. [Requirements](#requirements)
 4. [Task 0. Commence with class components](#classComponents)
 5. [Task 1. install Aphrodite](#installAphrodite)
+6. [Task 2. Conditionally applying style](#conditionallyApplyingStyle)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -102,5 +103,42 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: React_inline_styling
 - File: task_1/dashboard/src/App/App.js, task_1/dashboard/src/BodySection/BodySectionWithMarginBottom.js, task_1/dashboard/src/CourseList/CourseList.js, task_1/dashboard/src/Header/Header.js, task_1/dashboard/src/Login/Login.js, task_1/dashboard/src/Notifications/Notifications.js, task_1/dashboard/src/App/App.test.js,task_1/dashboard/src/BodySection/BodySectionWithMarginBottom.test.js, task_1/dashboard/src/CourseList/CourseList.test.js, task_1/dashboard/src/Header/Header.test.js, task_1/dashboard/src/Login/Login.test.js, task_1/dashboard/src/Notifications/Notifications.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 2. Conditionally applying style
+<a name="conditionallyApplyingStyle"></a>
+
+### Modify the NotificationItem component in task_2/dashboard/src/Notifications/NotificationItem.js:
+- Modify the component to use Aphrodite within the js file
+- Define the styling for the urgent and default items
+- Using condition, apply the styling to the li element
+- Delete the Notifications.css file and remove any import
+
+### Modify the NotificationItem.test suite in task_2/dashboard/src/Notifications/NotificationItem.test.js:
+- Make sure that tests are still passing
+
+### Modify the CourseListRow component in task_2/dashboard/src/CourseList/CourseListRow.js:
+- Modify the component to use Aphrodite within the js file
+- Define the styling for the different type of rows (default rows, header rows)
+- Define the styling for the different type of th elements
+- Delete the CourseList.css file and remove any import
+
+### Modify the CourseListRow.test suite in task_2/dashboard/src/CourseList/CourseListRow.test.js:
+- Make sure that tests are still passing
+- Test properties one by one if easier
+
+### Requirements:
+- Use conditions as much as you can, do not repeat elements
+- At this point, the UI should look exactly the same with the inline styling as it was with the CSS files
+
+### Tips:
+- You can either use conditions or use an array to apply the different styling. Conditions are usually more robust
+- Testing might become difficult with the different variations. Look into the Enzyme documentation for render, contains, prop, and html
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_inline_styling
+- File: task_2/dashboard/src/Notifications/NotificationItem.js, task_2/dashboard/src/Notifications/NotificationItem.test.js, task_2/dashboard/src/CourseList/CourseListRow.js, task_2/dashboard/src/CourseList/CourseListRow.test.js
 
 [Back to top](#Sections)
