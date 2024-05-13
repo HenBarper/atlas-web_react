@@ -1,6 +1,5 @@
 #CourseList {
   margin-top: 2rem;
-  /* margin-bottom: 12rem; */
   border: 1px solid lightgray;
 }
 
@@ -11,8 +10,8 @@
 table {
   margin-left: auto;
   margin-right: auto;
-  width: 90%; /* Make the table width 100% of the screen */
-  border-collapse: collapse; /* Collapse cell borders */
+  width: 90%;
+  border-collapse: collapse;
 }
 
 th {
@@ -20,7 +19,6 @@ th {
 }
 
 th, td {
-  /* border: 1px solid black; */
-  padding: 3px; /* Add padding to cells */
-  text-align: left; /* Align text to the left */
+  padding: 3px;
+  text-align: left;
 }

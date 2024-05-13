@@ -1,5 +1,4 @@
 .wholeNotification {
-  /* display: inline; */
   position: absolute;
   right: 1%;
   width: 40%;
@@ -10,7 +9,6 @@
 }
 
 .Notifications {
-  /* width: 50%; */
   border: 3px dotted red;
   padding-top: 1rem;
   position: relative;

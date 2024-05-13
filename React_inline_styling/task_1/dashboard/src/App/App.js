@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet, css } from 'aphrodite';
 import PropTypes from 'prop-types';
 import Notification from '../Notifications/Notifications';
 import Header from '../Header/Header';
@@ -87,5 +88,31 @@ class App extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  fontWeight900: {
+    fontWeight: 900
+  },
+
+  width250: {
+    width: '250px'
+  },
+
+  paddingBottom25rem: {
+    paddingBottom: '25rem'
+  },
+
+  marginTop3rem: {
+    marginTop: '3rem'
+  },
+
+  marginLeft2rem: {
+    marginLeft: '2rem'
+  },
+
+  marginLeft05rem: {
+    marginLeft: '0.5rem'
+  }
+});
 
 export default App;
