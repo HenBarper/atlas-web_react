@@ -142,3 +142,30 @@ ________________________________________________________________________________
 - File: task_2/dashboard/src/Notifications/NotificationItem.js, task_2/dashboard/src/Notifications/NotificationItem.test.js, task_2/dashboard/src/CourseList/CourseListRow.js, task_2/dashboard/src/CourseList/CourseListRow.test.js
 
 [Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 3. Responsive design
+<a name="responsiveDesign"></a>
+
+#### Let’s make the application responsive to the screen size using media queries. We are going to only focus on large screen and screens with a width under 900px
+
+### Modify the component Login in task_3/dashboard/src/Login/Login.js:
+- Make sure that a label and an input are on each line
+- Make sure that the button is on a new line
+
+### Modify the component Notifications in task_3/dashboard/src/Notifications/Notifications.js:
+- When the panel is open, it should take over the entire screen
+- There should be no padding because of the ul element
+- The font size of the text should be 20px
+
+### Modify the component NotificationItem in task_3/dashboard/src/Notifications/NotificationItem.js:
+- The item should take the entire screen width
+- A black border should be displayed at the bottom
+- The font size of the text should be 20px
+- The padding for the item should be 10px 8px
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_inline_styling
+- File: task_3/dashboard/src/Login/Login.js, task_3/dashboard/src/Notifications/Notifications.js, task_3/dashboard/src/Notifications/NotificationItem.js
+
+[Back to top](#Sections)
