@@ -114,6 +114,14 @@ const styles = StyleSheet.create({
   lilSpace: {
     marginLeft: '0.5rem'
   },
+
+  body: {
+    fontWeight: 900
+  },
+
+  footer: {
+    fontWeight: 900
+  }
 });
 
 export default App;
