@@ -77,11 +77,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: '1%',
     width: '40%',
-    backgroundColor: 'none',
     '@media (max-width: 900px)': {
-      backgroundColor: 'white',
       width: '98vw',
-      height: '100vh',
+      // height: '100vh',
       margin: 0,
       padding: 0,
       fontSize: '20px',
@@ -89,7 +87,10 @@ const styles = StyleSheet.create({
   },
   
   menuItem: {
-    textAlign: 'right'
+    textAlign: 'right',
+    '@media (max-width: 900px)': {
+      display: 'none'
+    },
   },
   
   ul: {
@@ -103,18 +104,12 @@ const styles = StyleSheet.create({
     paddingTop: '1rem',
     position: 'relative',
     '@media (max-width: 900px)': {
+      backgroundColor: 'white',
       border: 'none',
-      paddingTop: '1rem',
+      // paddingTop: '1rem',
+      height: '100vh',
     },
   },
-  
-  // li[data-priority='default']: {
-  //   color: 'navy'
-  // },
-  
-  // li[data-priority='urgent']: {
-  //   color: 'red'
-  // },
 });
 
 export default Notification
