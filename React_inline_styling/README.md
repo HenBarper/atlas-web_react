@@ -8,6 +8,8 @@ Atlast T5 React Inline Styling Project
 4. [Task 0. Commence with class components](#classComponents)
 5. [Task 1. install Aphrodite](#installAphrodite)
 6. [Task 2. Conditionally applying style](#conditionallyApplyingStyle)
+7. [Task 3. Responsive design](#responsiveDesign)
+8. [Task 4. Animation](#animation)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -167,5 +169,26 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: React_inline_styling
 - File: task_3/dashboard/src/Login/Login.js, task_3/dashboard/src/Notifications/Notifications.js, task_3/dashboard/src/Notifications/NotificationItem.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 4. Animation
+<a name="animation"></a>
+
+#### Let’s create an animation that we can display when the user hovers on the Notifications menu or when there is a new notification. In task_4/dashboard/Notifications/Notifications.js:
+- Create one object containing the CSS frames to make the opacity change from 0.5 to 1
+- Create one object containing the CSS frames to make the element bounce. You can play with translateY and alternate from 0px to -5px and 5px
+
+#### Modify the styling for the menu item to:
+- Float on the right of the screen over every element
+- The background color should be #fff8f8
+- Show the pointer cursor when hovering the element
+- On hover, animate the element with the two new animations. The duration for the opacity change should be 1s, and the duration for the bouncing effect should be 0.5s. The animation should repeat 3 times only
+- When the list of notifications is visible, hide the menu item
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: React_inline_styling
+- File: task_4/dashboard/src/Notifications/Notifications.js
 
 [Back to top](#Sections)
