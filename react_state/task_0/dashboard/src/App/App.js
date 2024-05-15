@@ -7,7 +7,7 @@ import Login from '../Login/Login';
 import BodySection from '../BodySection/BodySection';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 import CourseList from '../CourseList/CourseList';
-import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer';
 import { getLatestNotification } from '../utils/utils';
 
 class App extends React.Component {
@@ -24,27 +24,37 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      displayDrawer: false
+    };
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    this.handleHideDrawer = this.handleHideDrawer.bind(this);
   }
 
   componentDidMount() {
-    // console.log("Adding keydown event listener");
     document.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    // console.log("Removing keydown event listener");
     document.removeEventListener('keydown', this.handleKeyDown);
   }
 
   handleKeyDown(event) {
-    // console.log("Key pressed: ", event.key);
-    // console.log("Ctrl key pressed: ", event.ctrlKey);
     if (event.ctrlKey && event.key === 'h') {
       event.preventDefault();
       alert('Logging you out');
       this.props.logOut();
     }
+  }
+
+  handleDisplayDrawer () {
+    console.log('Show Display Drawer!')
+    this.setState({ displayDrawer: true });
+  }
+  handleHideDrawer() {
+    console.log('Hide Display Drawer!')
+    this.setState({ displayDrawer: false });
   }
 
   render() {
@@ -64,7 +74,12 @@ class App extends React.Component {
 
     return (
       <>
-        <Notification displayDrawer={true} listNotifications={listNotifications} />
+        <Notification
+          displayDrawer={this.state.displayDrawer}
+          handleDisplayDrawer={this.handleDisplayDrawer}
+          handleHideDrawer={this.handleHideDrawer}
+          listNotifications={listNotifications} 
+        />
         <div className='App'>
           <Header />
           {isLoggedIn ? (
