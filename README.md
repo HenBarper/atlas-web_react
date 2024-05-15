@@ -8,6 +8,7 @@ Atlast T5 React Projects
 3. [React Props](#reactProps)
 4. [React Components](#reactComponents)
 5. [React Inline Styling](#reactInlineStyling)
+6. [React State](#reactState)
 
 [Credits](#Credits)
 
@@ -141,6 +142,39 @@ ________________________________________________________________________________
 - how to use conditions within JS to apply different styles
 - how to use responsive design and make the application show a different UI according to the screen size
 - how to create small animations within the app
+
+### Requirements
+- All your files will be interpreted/compiled on Ubuntu 18.04 LTS using node 12.x.x and npm 6.x.x
+- Allowed editors: vi, vim, emacs, Visual Studio Code
+- All your files should end with a new line
+- A README.md file, at the root of the folder of the project, is mandatory
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Project 5: React State
+<a name="reactState"></a>
+
+### Resources
+- [State and Lifecycle](https://legacy.reactjs.org/docs/state-and-lifecycle.html)
+- [SetState and State Callback](https://legacy.reactjs.org/docs/react-component.html)
+- [Context](https://legacy.reactjs.org/docs/context.html)
+- [Forms and Controlled Components](https://legacy.reactjs.org/docs/forms.html)
+- [Lifting State Up](https://legacy.reactjs.org/docs/lifting-state-up.html)
+- [React Hooks](https://legacy.reactjs.org/docs/hooks-intro.html)
+- [Enzyme State](https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/state.html)
+- [Enzyme SetState](https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/setState.html)
+- [Enzyme Instance](https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/instance.html)
+- [Enzyme Simulate](https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/simulate.html)
+
+### Learning Objectives
+- What the state of a component or a container is
+- The lifecycle of a component
+- How to modify a state and execute code in the right order
+- What a controlled component is
+- How to use Forms in React
+- How to reuse smaller components, keep them pure, and lift its state to principal containers
+- The use of a React Hook and how to create one
+- How to test State changes with Enzyme
 
 ### Requirements
 - All your files will be interpreted/compiled on Ubuntu 18.04 LTS using node 12.x.x and npm 6.x.x
