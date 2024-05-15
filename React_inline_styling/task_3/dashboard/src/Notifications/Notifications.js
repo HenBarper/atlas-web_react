@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
   menuItem: {
     textAlign: 'right',
     '@media (max-width: 900px)': {
-      display: 'none'
+      position: 'fixed',
+      right: '10px'
     },
   },
   
