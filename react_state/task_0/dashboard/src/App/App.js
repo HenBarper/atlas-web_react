@@ -59,6 +59,7 @@ class App extends React.Component {
 
   render() {
     const { isLoggedIn } = this.props;
+    const { displayDrawer } = this.state;
 
     const listCourses = [
       { id: 1, name: 'ES6', credit: 60 },
