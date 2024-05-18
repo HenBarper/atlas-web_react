@@ -9,6 +9,7 @@ import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBot
 import CourseList from '../CourseList/CourseList';
 import Footer from '../Footer/Footer';
 import { getLatestNotification } from '../utils/utils';
+import AppContext from './AppContext';
 
 class App extends React.Component {
 
@@ -25,7 +26,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayDrawer: false
+      displayDrawer: false,
+      user: {
+        email: '',
+        password: '',
+        // isLoggedIn: false,
+      },
+      // logOut: this.logOut,
+      logIn: this.logIn,
     };
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
@@ -49,17 +57,35 @@ class App extends React.Component {
   }
 
   handleDisplayDrawer () {
-    // console.log('Show Display Drawer!')
     this.setState({ displayDrawer: true });
   }
   handleHideDrawer() {
-    // console.log('Hide Display Drawer!')
     this.setState({ displayDrawer: false });
   }
 
+  logIn = (email, password) => {
+    this.setState({
+      user: {
+        email,
+        password,
+        isLoggedIn: true,
+      }
+    });
+  }
+
+  logOut = () => {
+    this.setState({
+      user: {
+        email: '',
+        password: '',
+        isLoggedIn: false,
+      }
+    });
+  }
+
   render() {
-    const { isLoggedIn } = this.props;
-    const { displayDrawer } = this.state;
+    // const { isLoggedIn } = this.props;
+    const { displayDrawer, user } = this.state;
 
     const listCourses = [
       { id: 1, name: 'ES6', credit: 60 },
@@ -74,7 +100,7 @@ class App extends React.Component {
     ]
 
     return (
-      <>
+      <AppContext.Provider value={{ user: this.state.user, logOut: this.state.logOut, logIn: this.state.logIn }}>
         <Notification
           displayDrawer={this.state.displayDrawer}
           handleDisplayDrawer={this.handleDisplayDrawer}
@@ -83,7 +109,7 @@ class App extends React.Component {
         />
         <div className='App'>
           <Header />
-          {isLoggedIn ? (
+          {user.isLoggedIn ? (
               <>
                 <BodySectionWithMarginBottom title="Course list">
                     <CourseList listCourses={listCourses} />
@@ -100,7 +126,7 @@ class App extends React.Component {
           <hr></hr>
           <Footer />
         </div>
-      </>
+      </ AppContext.Provider>
     );
   }
 }

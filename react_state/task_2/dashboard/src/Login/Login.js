@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { StyleSheet, css } from 'aphrodite';
+import AppContext from '../App/AppContext';
 
 function Login() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { logIn } = useContext(AppContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [enableSubmit, setEnableSubmit] = useState(false);
@@ -10,7 +11,8 @@ function Login() {
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-    setIsLoggedIn(true);
+    // setIsLoggedIn(true);
+    logIn(email, password);
   };
 
   const handleChangeEmail = (event) => {
