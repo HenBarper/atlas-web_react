@@ -49,11 +49,11 @@ class App extends React.Component {
   }
 
   handleDisplayDrawer () {
-    console.log('Show Display Drawer!')
+    // console.log('Show Display Drawer!')
     this.setState({ displayDrawer: true });
   }
   handleHideDrawer() {
-    console.log('Hide Display Drawer!')
+    // console.log('Hide Display Drawer!')
     this.setState({ displayDrawer: false });
   }
 
