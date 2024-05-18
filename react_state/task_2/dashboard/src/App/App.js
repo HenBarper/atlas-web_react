@@ -32,7 +32,7 @@ class App extends React.Component {
         password: '',
         // isLoggedIn: false,
       },
-      // logOut: this.logOut,
+      logOut: this.logOut,
       logIn: this.logIn,
     };
     this.handleKeyDown = this.handleKeyDown.bind(this);

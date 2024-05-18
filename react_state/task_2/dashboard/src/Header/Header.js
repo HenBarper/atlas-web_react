@@ -1,17 +1,29 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite';
 import logo from '../assets/holberton-logo.jpg';
+import AppContext from '../App/AppContext';
 
-function Header() {
-  return (
-    <>
-      <header className={css(styles.appHeader)}>
-        <img src={logo} className={css(styles.appLogo)} alt='logo' />
-        <h1 className={css(styles.h1)}>School Dashboard</h1>
-      </header>
-      <hr className={css(styles.hr)}></hr>
-    </>
-  );
+class Header extends React.Component {
+  static contextType = AppContext;
+
+  render() {
+    const { user, logOut } = this.context;
+
+    return (
+      <>
+        <header className={css(styles.appHeader)}>
+          <img src={logo} className={css(styles.appLogo)} alt='logo' />
+          <h1 className={css(styles.h1)}>School Dashboard</h1>
+        </header>
+        <hr className={css(styles.hr)}></hr>
+        {user.isLoggedIn && (
+          <section id='logoutSection'>
+            Welcome {user.email} (<a href='#' onClick={logOut}>logout</a>)
+          </section>
+        )}
+      </>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
