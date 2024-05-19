@@ -1,33 +1,50 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { StyleSheetTestUtils } from 'aphrodite';
 import Header from './Header';
+import AppContext from '../App/AppContext';
 
 describe('Header component tests', () => {
+    let contextValue;
     let wrapper;
 
-    // This will run before each test and create a shallow render of the App component
     beforeEach(() => {
-        wrapper = shallow(<Header />);
+        contextValue = {
+            user: {
+                email: 'test@example.com',
+                password: '',
+                isLoggedIn: true
+            },
+            logOut: jest.fn(),
+        };
         StyleSheetTestUtils.suppressStyleInjection();
+        wrapper = mount(
+            <AppContext.Provider value={contextValue}>
+                <Header />
+            </AppContext.Provider>
+        );
+        jest.spyOn(console, 'error').mockImplementation((msg) => {
+            if (!msg.includes('findDOMNode')) {
+              console.error(msg);
+            }
+          });
+    });
+
+    afterEach(() => {
+        jest.restoreAllMocks();
     });
 
     test('Header renders without crashing', () => {
         expect(wrapper.exists()).toBe(true);
     });
 
-    test('Header renders a div with the class App-header', () => {
-      const header = wrapper.find('header')
-      expect(header.exists()).toBe(true);
-      expect(header.prop('className')).toBeDefined();
-      expect(header.prop('className')).toContain('appHeader');
+    test('Header contains a logout section when user is logged in', () => {
+        expect(wrapper.find('#logoutSection').exists()).toBe(true);
+        expect(wrapper.find('#logoutSection').text()).toContain('Welcome test@example.com');
     });
 
-    test('Header renders an img element', () => {
-      expect(wrapper.find('img').exists()).toBe(true);
-    });
-
-    test('Header renders an h1 element', () => {
-      expect(wrapper.find('h1').exists()).toBe(true);
+    test('Clicking logout link calls logOut function', () => {
+        wrapper.find('#logoutSection a').simulate('click');
+        expect(contextValue.logOut).toHaveBeenCalled();
     });
 });

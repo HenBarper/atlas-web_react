@@ -14,12 +14,12 @@ import AppContext from './AppContext';
 class App extends React.Component {
 
   static propTypes = {
-    isLoggedIn: PropTypes.bool,
+    // isLoggedIn: PropTypes.bool,
     logOut: PropTypes.func,
   }
 
   static defaultProps = {
-    isLoggedIn: false,
+    // isLoggedIn: false,
     logOut: () => {},
   }
 

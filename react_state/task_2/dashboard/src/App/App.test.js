@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { StyleSheetTestUtils } from 'aphrodite';
 import App from './App';
 import Notifications from '../Notifications/Notifications';
@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import Login from '../Login/Login';
 import CourseList from '../CourseList/CourseList';
 import Footer from '../Footer/Footer';
+import AppContext from './AppContext';
 
 describe('App component tests', () => {
     let wrapper;
@@ -14,6 +15,7 @@ describe('App component tests', () => {
     beforeEach(() => {
         wrapper = shallow(<App />);
         StyleSheetTestUtils.suppressStyleInjection();
+        // global.alert = jest.fn();
     });
 
     afterEach(() => {
@@ -41,24 +43,47 @@ describe('App component tests', () => {
     });
 
     test('CourseList is not displayed when isLoggedIn is false', () => {
-        wrapper = shallow(<App isLoggedIn={false} />);
+        // wrapper = shallow(<App isLoggedIn={false} />);
         expect(wrapper.find(CourseList).exists()).toBe(false);
     });
 
     test('Login is not displayed when isLoggedIn is true', () => {
-        wrapper = shallow(<App isLoggedIn={true} />);
+        // wrapper = shallow(<App isLoggedIn={true} />);
+        wrapper.setState({ 
+            user: { 
+                email: 'test@example.com',
+                password: '123', isLoggedIn: true 
+            } 
+        });
         expect(wrapper.find(Login).exists()).toBe(false);
     });
 
     test('CourseList is displayed when isLoggedIn is true', () => {
-        wrapper = shallow(<App isLoggedIn={true} />);
+        // wrapper = shallow(<App isLoggedIn={true} />);
+        wrapper.setState({ 
+            user: { 
+                email: 'test@example.com',
+                password: '123', isLoggedIn: true 
+            } 
+        });
         expect(wrapper.find(CourseList).exists()).toBe(true);
     });
 
     test('verify that when the keys control and h are pressed the logOut function, passed as a prop, is called and the alert function is called with the string Logging you out', () => {
-        const logOutMock = jest.fn();
-        const wrapper = shallow(<App logOut={logOutMock} />);
-        
+        const logOutMock = jest.fn(() => {
+            wrapper.instance().logOut();
+        });
+        // const wrapper = shallow(<App logOut={logOutMock} />);
+        wrapper.setState({ 
+            user: { 
+                email: 'test@example.com',
+                password: '123', isLoggedIn: true 
+            } 
+        });
+        wrapper.setProps({
+            logOut: logOutMock
+        });
+
         const event = {
             key: 'h',
             ctrlKey: true,
@@ -69,6 +94,8 @@ describe('App component tests', () => {
     
         expect(global.alert).toHaveBeenCalledWith('Logging you out');
         expect(logOutMock).toHaveBeenCalled();
+        // console.log(wrapper.state().user.isLoggedIn);
+        expect(wrapper.state().user.isLoggedIn).toBe(false);
     });
 
     test('verify that the default state for displayDrawer is false, then true after calling handleDisplayDrawer', () => {
@@ -82,5 +109,16 @@ describe('App component tests', () => {
         expect(wrapper.state('displayDrawer')).toBe(true);
         wrapper.instance().handleHideDrawer();
         expect(wrapper.state('displayDrawer')).toBe(false);
+    });
+
+    test('verify that the logIn function updates the state correctly', () => {
+        wrapper.instance().logIn('test@example.com', 'password');
+        expect(wrapper.state().user).toEqual({ email: 'test@example.com', password: 'password', isLoggedIn: true });
+    });
+
+    test('verify that the logOut function updates the state correctly', () => {
+        wrapper.setState({ user: { email: 'test@example.com', password: '123', isLoggedIn: true } });
+        wrapper.instance().logOut();
+        expect(wrapper.state().user).toEqual({ email: '', password: '', isLoggedIn: false });
     });
 });

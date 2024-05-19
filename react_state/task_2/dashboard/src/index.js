@@ -9,7 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <Notification /> */}
-    <App isLoggedIn={false}/>
+    {/* <App isLoggedIn={false}/> */}
+    <App />
   </React.StrictMode>
 );
 
