@@ -9,6 +9,7 @@ Atlast T5 React State Project
 5. [Task 1. Controlled components and state callback](#controllerComponentsAndStateCallback)
 6. [Task 2. Context](#context)
 7. [Task 3. Context consumer & advanced state](#contextConsumerAdvancedState)
+8. [Task 4. Introduction to react hook](#introToReactHook)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -237,6 +238,26 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_state
 - File: task_3/dashboard/src/Footer/Footer.js, task_3/dashboard/src/Footer/Footer.test.js, task_3/dashboard/src/App/App.js, task_3/dashboard/src/App/App.test.js, task_3/dashboard/src/Notifications/Notifications.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 4. Introduction to react hook
+<a name="introToReactHook"></a>
+
+### Using React Hooks, modify the CourseListRow component in task_4/dashboard/src/CourseList/CourseListRow.js:
+- Add a new style named rowChecked with the background color #e6e4e4
+- When the row is a simple row, add a checkbox within the first cell
+- When the user checks the box, the styling of the row should use rowChecked
+
+### Tips & Requirements:
+- Make sure that the checkbox of each row is correctly checked or unchecked after the user interaction
+- React Hooks are new in React and the number of resources can be limited. Refer to the official documentation of React. The exercise is simple enough that should not need anything else
+- Do not modify the component to a Class. You need to use the React Hook
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_state
+- File: task_4/dashboard/src/CourseList/CourseListRow.js
 
 [Back to top](#Sections)
 
