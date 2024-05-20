@@ -121,4 +121,29 @@ describe('App component tests', () => {
         wrapper.instance().logOut();
         expect(wrapper.state().user).toEqual({ email: '', password: '', isLoggedIn: false });
     });
+
+    test('verify that markNotificationAsRead works as intended', () => {
+        wrapper.setState({
+            user: {
+                email: 'test@example.com',
+                password: '123',
+                isLoggedIn: true,
+            },
+            listNotifications: [
+                { id: 1, type: 'default', value: 'notification 1'},
+                { id: 2, type: 'urgent', value: 'notification 2'},
+                { id: 3, type: 'default', value: 'notification 3' },
+                { id: 4, type: 'urgent', value: 'notification 4' },
+            ],
+        });
+        // console.log(wrapper.state('listNotifications'));
+        expect(wrapper.state('listNotifications').length).toBe(4);
+        wrapper.instance().markNotificationAsRead(2);
+        expect(wrapper.state('listNotifications').length).toBe(3);
+        expect(wrapper.state('listNotifications')).toEqual([
+            { id: 1, type: 'default', value: 'notification 1'},
+            { id: 3, type: 'default', value: 'notification 3' },
+            { id: 4, type: 'urgent', value: 'notification 4' }
+        ]);
+    });
 });
