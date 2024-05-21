@@ -9,6 +9,7 @@ Atlast T5 React Projects
 4. [React Components](#reactComponents)
 5. [React Inline Styling](#reactInlineStyling)
 6. [React State](#reactState)
+7. [React Redux Action Creator Normalizr](#reactReduxActionCreatorNormalizr)
 
 [Credits](#Credits)
 
@@ -181,6 +182,36 @@ ________________________________________________________________________________
 - Allowed editors: vi, vim, emacs, Visual Studio Code
 - All your files should end with a new line
 - A README.md file, at the root of the folder of the project, is mandatory
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Project 6: React State React Redux Action Creator Normalizr
+<a name="reactReduxActionCreatorNormalizr"></a>
+
+### Resources
+- [Normalizr](https://github.com/paularmstrong/normalizr)
+- [Normalizing State Shape](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape)
+- [Redux Getting Started and Core Concepts](https://redux.js.org/introduction/getting-started)
+- [Redux Actions](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow)
+- [Async ACtions](https://redux.js.org/tutorials/fundamentals/part-6-async-logic)
+- [Writing Tests for Redux](https://redux.js.org/usage/writing-tests)
+
+### Learning Objectives
+- Normalizr’s purpose and how to use it
+- Schemas and normalization of nested JSON
+- Core concepts of Redux
+- Redux actions
+- Redux action creators
+- Async actions in Redux
+- How to write tests for Redux
+
+### Requirements
+- Allowed editors: vi, vim, emacs, Visual Studio Code
+- All your files should end with a new line
+- All your files will be interpreted/compiled on Ubuntu 18.04 LTS using node 12.x.x and npm 6.x.x
+- A README.md file, at the root of the folder of the project, is mandatory
+- Push all of your files, including package.json and .babelrc
+- All of your functions must be exported
 
 [Back to top](#Sections)
 __________________________________________________________________________________________________________________________________________
