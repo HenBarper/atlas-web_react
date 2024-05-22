@@ -1,7 +1,7 @@
 import { selectCourse, unSelectCourse } from './courseActionCreators';
 import { SELECT_COURSE, UNSELECT_COURSE } from './courseActionTypes';
 
-describe('action creator tests', () => {
+describe('Course action creator tests', () => {
   test('should return the SELECT_COURSE action object', () => {
     const index = 1;
     const expectedAction = {
