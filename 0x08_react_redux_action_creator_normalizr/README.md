@@ -7,6 +7,7 @@ Atlast T5 React State React Redux Action Creator Normalizr Project
 2. [Requirements](#requirements)
 4. [Task 0. Read data from a JSON](#readDataFromAJson)
 5. [Task 1. Normalize a nested JSON](#normalizeNestedJson)
+6. [Task 2. Filter a normalized Schema](#filterNormalizedSchema)
 
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
@@ -157,5 +158,25 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: 0x08_react_redux_action_creator_normalizr
 - File: task_1/dashboard/src/schema/notifications.js, task_1/dashboard/src/schema/notifications.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 2. Filter a normalized Schema
+<a name="filterNormalizedSchema"></a>
+
+#### Copy the contents of dashboard from the task_1 directory into a task_2 directory at the root of the project
+
+#### Modify the function getAllNotificationsByUser to use the normalized dataset
+
+### Requirements:
+- You should only use one loop at this point
+- You should not use Object.keys
+- You should not have to modify the test, and the test should pass correctly
+- All the tests in the project should pass
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: 0x08_react_redux_action_creator_normalizr
+- File: task_2/dashboard/src/schema/notifications.js
 
 [Back to top](#Sections)
