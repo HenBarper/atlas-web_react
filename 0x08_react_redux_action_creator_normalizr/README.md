@@ -11,6 +11,7 @@ Atlast T5 React State React Redux Action Creator Normalizr Project
 7. [Task 3. Create actions for the course list](#createActionsForTheCourseList)
 8. [Task 4. Create actions for the UI](#createActionsForTheUI)
 9. [Task 5. Create actions for the notification list](#createActionsForTheNoticicationList)
+10. [Task 6. Bound the Actions](#boundTheActions)
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
@@ -302,5 +303,29 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: 0x08_react_redux_action_creator_normalizr
 - File: task_5/dashboard/src/actions/notificationActionTypes.js, task_5/dashboard/src/actions/notificationActionCreators.js, task_5/dashboard/src/actions/notificationActionCreators.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 6. Bound the actions
+<a name="boundTheActions"></a>
+
+#### Modify the Course actions creators:
+- bound the selectCourse action creator
+- bound the unSelectCourse action creator
+
+#### Modify the Notification actions creators:
+- bound the markAsAread action creator
+- bound the setNotificationFilter action creator
+
+#### Modify the UI actions creators:
+- bound the login action creator
+- bound the logout action creator
+- bound the displayNotificationDrawer action creator
+- bound the hideNotificationDrawer action creator
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: 0x08_react_redux_action_creator_normalizr
+- File: task_6/dashboard/src/actions/courseActionCreators.js, task_6/dashboard/src/actions/notificationActionCreators.js, task_6/dashboard/src/actions/uiActionCreators.js
 
 [Back to top](#Sections)
