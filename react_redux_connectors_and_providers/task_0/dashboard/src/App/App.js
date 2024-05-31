@@ -10,6 +10,7 @@ import CourseList from '../CourseList/CourseList';
 import Footer from '../Footer/Footer';
 import { getLatestNotification } from '../utils/utils';
 import AppContext from './AppContext';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
 
@@ -123,7 +124,7 @@ class App extends React.Component {
         />
         <div className='App'>
           <Header />
-          {user.isLoggedIn ? (
+          {isLoggedIn ? (
               <>
                 <BodySectionWithMarginBottom title="Course list">
                     <CourseList listCourses={listCourses} />
@@ -144,6 +145,12 @@ class App extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.isLoggedIn
+  };
+};
 
 const styles = StyleSheet.create({
   fontWeight900: {
@@ -180,4 +187,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App;
+// export default App;
+export default connect(mapStateToProps)(App);

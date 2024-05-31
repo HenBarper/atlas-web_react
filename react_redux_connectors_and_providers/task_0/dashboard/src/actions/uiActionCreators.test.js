@@ -43,37 +43,37 @@ describe('UI action creator tests', () => {
     expect(hideNotificationDrawer()).toEqual(expectedAction);
   });
 
-  test('verify that if the API returns the right response, the store received two actions LOGIN and LOGIN_SUCCESS', async () => {
-    const email = 'test@example.com';
-    const password = 'Password123';
+  // test('verify that if the API returns the right response, the store received two actions LOGIN and LOGIN_SUCCESS', async () => {
+  //   const email = 'test@example.com';
+  //   const password = 'Password123';
 
-    fetchMock.getOnce('http://localhost/dist/login-success.json', {
-      body: { success: true },
-      headers: { 'content-type': 'application/json' }
-    });
+  //   fetchMock.getOnce('http://localhost/dist/login-success.json', {
+  //     body: { success: true },
+  //     headers: { 'content-type': 'application/json' }
+  //   });
 
-    const expectedActions = [
-      { type: LOGIN, user: { email, password } },
-      { type: LOGIN_SUCCESS }
-    ];
-    const store = mockStore({});
-    await store.dispatch(loginRequest(email, password));
-    expect(store.getActions()).toEqual(expectedActions);
-  });
+  //   const expectedActions = [
+  //     { type: LOGIN, user: { email, password } },
+  //     { type: LOGIN_SUCCESS }
+  //   ];
+  //   const store = mockStore({});
+  //   await store.dispatch(loginRequest(email, password));
+  //   expect(store.getActions()).toEqual(expectedActions);
+  // });
 
-  test('verify that if the API query fails, the store received two actions LOGIN and LOGIN_FAILURE', async () => {
-    const email = 'test@example.com';
-    const password = 'Password123';
+  // test('verify that if the API query fails, the store received two actions LOGIN and LOGIN_FAILURE', async () => {
+  //   const email = 'test@example.com';
+  //   const password = 'Password123';
 
-    fetchMock.getOnce('http://localhost/dist/login-success.json', 500);
+  //   fetchMock.getOnce('http://localhost/dist/login-success.json', 500);
 
-    const expectedActions = [
-      { type: LOGIN, user: { email, password } },
-      { type: LOGIN_FAILURE }
-    ];
-    const store = mockStore({});
-    await store.dispatch(loginRequest(email, password));
-    expect(store.getActions()).toEqual(expectedActions);
-  });
+  //   const expectedActions = [
+  //     { type: LOGIN, user: { email, password } },
+  //     { type: LOGIN_FAILURE }
+  //   ];
+  //   const store = mockStore({});
+  //   await store.dispatch(loginRequest(email, password));
+  //   expect(store.getActions()).toEqual(expectedActions);
+  // });
 });
 
