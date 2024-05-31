@@ -1,5 +1,4 @@
-# React State
-Atlast T5 React State React Redux Action Creator Normalizr Project
+# Atlast T5 React Redux Reducer + Selector
 
 ## Sections
 <a name="Sections"></a>
