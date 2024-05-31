@@ -5,6 +5,7 @@
 1. [Learning Objectives](#learningObjectives)
 2. [Requirements](#requirements)
 4. [Task 0. Write mapStateToProps](#writeMapStateToProps)
+5. [Task 1. Create a small store](#createSmallStore)
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
@@ -42,5 +43,19 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_redux_connectors_and_providers
 - File: ask_0/dashboard/src/App/App.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 1. Create a small store
+<a name="createSmallStore"></a>
+
+### In the index.js file:
+- Create a store using createStore from Redux that would contain the uiReducer state
+- Implement a provider passing the store that you created to the main App
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_redux_connectors_and_providers
+- File: task_0/dashboard/src/index.js
 
 [Back to top](#Sections)
