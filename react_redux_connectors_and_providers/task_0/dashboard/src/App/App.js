@@ -124,7 +124,7 @@ class App extends React.Component {
         />
         <div className='App'>
           <Header />
-          {isLoggedIn ? (
+          {user.isLoggedIn ? (
               <>
                 <BodySectionWithMarginBottom title="Course list">
                     <CourseList listCourses={listCourses} />

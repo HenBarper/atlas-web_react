@@ -1,13 +1,14 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { StyleSheetTestUtils } from 'aphrodite';
-import App from './App';
+import App, {mapStateToProps} from './App';
 import Notifications from '../Notifications/Notifications';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import CourseList from '../CourseList/CourseList';
 import Footer from '../Footer/Footer';
 import AppContext from './AppContext';
+import { fromJS } from 'immutable';
 
 describe('App component tests', () => {
     let wrapper;
@@ -145,5 +146,15 @@ describe('App component tests', () => {
             { id: 3, type: 'default', value: 'notification 3' },
             { id: 4, type: 'urgent', value: 'notification 4' }
         ]);
+    });
+});
+
+describe('mapStateToProps tests', () => {
+    test('should map the state correctly', () => {
+        const mockState = fromJS({
+          isUserLoggedIn: true
+        });
+        const state = mapStateToProps(mockState);
+        expect(state.isLoggedIn).toBe(true);
     });
 });
