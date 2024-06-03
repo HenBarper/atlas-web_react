@@ -15,6 +15,7 @@ const mockStore = configureStore([]);
 const initialState = fromJS({
   isUserLoggedIn: false,
   isNotificationDrawerVisible: false,
+  notifications: [],
 });
 const store = mockStore(initialState);
 
@@ -23,16 +24,14 @@ describe('App component tests', () => {
 
     beforeEach(() => {
         StyleSheetTestUtils.suppressStyleInjection(); // If you're using aphrodite
-        // global.alert = jest.fn();
         wrapper = shallow(
           <Provider store={store}>
             <App />
           </Provider>
         ).dive();
-      });
+    });
 
     afterEach(() => {
-        // jest.restoreAllMocks();
         wrapper.unmount();
     });
 
@@ -60,39 +59,49 @@ describe('App component tests', () => {
         expect(wrapper.find(CourseList).exists()).toBe(false);
     });
 
-    test('Login is not displayed when isLoggedIn is true', () => {
-        wrapper.setState({
-            user: {
-                email: 'test@example.com',
-                password: '123', isLoggedIn: true
-            }
+    test('CourseList is displayed when isLoggedIn is true', () => {
+        const loggedInState = fromJS({
+            isUserLoggedIn: true,
+            isNotificationDrawerVisible: false,
+            notifications: [],
         });
-        expect(wrapper.find(Login).exists()).toBe(false);
+        const loggedInStore = mockStore(loggedInState);
+        const loggedInWrapper = shallow(
+            <Provider store={loggedInStore}>
+                <App />
+            </Provider>
+        ).dive();
+        expect(loggedInWrapper.find(CourseList).exists()).toBe(true);
     });
 
-    test('CourseList is displayed when isLoggedIn is true', () => {
-        wrapper.setState({
-            user: {
-                email: 'test@example.com',
-                password: '123', isLoggedIn: true
-            }
+    test('Login is not displayed when isLoggedIn is true', () => {
+        const loggedInState = fromJS({
+            isUserLoggedIn: true,
+            isNotificationDrawerVisible: false,
+            notifications: [],
         });
-        expect(wrapper.find(CourseList).exists()).toBe(true);
+        const loggedInStore = mockStore(loggedInState);
+        const loggedInWrapper = shallow(
+            <Provider store={loggedInStore}>
+                <App />
+            </Provider>
+        ).dive();
+        expect(loggedInWrapper.find(Login).exists()).toBe(false);
     });
 
     test('verify that when the keys control and h are pressed the logOut function, passed as a prop, is called and the alert function is called with the string Logging you out', () => {
-        const logOutMock = jest.fn(() => {
-            wrapper.instance().logOut();
+        const logOutMock = jest.fn();
+        const loggedInState = fromJS({
+            isUserLoggedIn: true,
+            isNotificationDrawerVisible: false,
+            notifications: [],
         });
-        wrapper.setState({
-            user: {
-                email: 'test@example.com',
-                password: '123', isLoggedIn: true
-            }
-        });
-        wrapper.setProps({
-            logOut: logOutMock
-        });
+        const loggedInStore = mockStore(loggedInState);
+        const loggedInWrapper = shallow(
+            <Provider store={loggedInStore}>
+                <App logOut={logOutMock} />
+            </Provider>
+        ).dive();
 
         const event = {
             key: 'h',
@@ -100,72 +109,22 @@ describe('App component tests', () => {
             preventDefault: jest.fn(),
         };
 
-        wrapper.instance().handleKeyDown(event);
+        loggedInWrapper.find(App).instance().handleKeyDown(event);
 
         expect(global.alert).toHaveBeenCalledWith('Logging you out');
         expect(logOutMock).toHaveBeenCalled();
-        expect(wrapper.state().user.isLoggedIn).toBe(false);
     });
 
-    test('verify that the default state for displayDrawer is false, then true after calling handleDisplayDrawer', () => {
-        expect(wrapper.state('displayDrawer')).toBe(false);
-        wrapper.instance().handleDisplayDrawer();
-        expect(wrapper.state('displayDrawer')).toBe(true);
-    });
-
-    test('verify that after calling handleHideDrawer, the state is updated to be false', () => {
-        wrapper.instance().handleDisplayDrawer();
-        expect(wrapper.state('displayDrawer')).toBe(true);
-        wrapper.instance().handleHideDrawer();
-        expect(wrapper.state('displayDrawer')).toBe(false);
-    });
-
-    test('verify that the logIn function updates the state correctly', () => {
-        wrapper.instance().logIn('test@example.com', 'password');
-        expect(wrapper.state().user).toEqual({ email: 'test@example.com', password: 'password', isLoggedIn: true });
-    });
-
-    test('verify that the logOut function updates the state correctly', () => {
-        wrapper.setState({ user: { email: 'test@example.com', password: '123', isLoggedIn: true } });
-        wrapper.instance().logOut();
-        expect(wrapper.state().user).toEqual({ email: '', password: '', isLoggedIn: false });
-    });
-
-    test('verify that markNotificationAsRead works as intended', () => {
-        wrapper.setState({
-            user: {
-                email: 'test@example.com',
-                password: '123',
-                isLoggedIn: true,
-            },
-            listNotifications: [
-                { id: 1, type: 'default', value: 'notification 1' },
-                { id: 2, type: 'urgent', value: 'notification 2' },
-                { id: 3, type: 'default', value: 'notification 3' },
-                { id: 4, type: 'urgent', value: 'notification 4' },
-            ],
-        });
-        expect(wrapper.state('listNotifications').length).toBe(4);
-        wrapper.instance().markNotificationAsRead(2);
-        expect(wrapper.state('listNotifications').length).toBe(3);
-        expect(wrapper.state('listNotifications')).toEqual([
-            { id: 1, type: 'default', value: 'notification 1' },
-            { id: 3, type: 'default', value: 'notification 3' },
-            { id: 4, type: 'urgent', value: 'notification 4' }
-        ]);
-    });
-});
-
-// New suite for mapStateToProps
-describe('mapStateToProps', () => {
-    test('returns the correct object when passing the state', () => {
+    test('verify mapStateToProps returns the correct object', () => {
         const state = fromJS({
             isUserLoggedIn: true,
             isNotificationDrawerVisible: true,
+            notifications: [],
         });
         const expectedProps = {
             isLoggedIn: true,
             displayDrawer: true,
+            listNotifications: [],
         };
         expect(mapStateToProps(state)).toEqual(expectedProps);
     });
