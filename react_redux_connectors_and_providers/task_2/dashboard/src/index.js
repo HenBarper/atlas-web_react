@@ -5,12 +5,19 @@ import App from './App/App';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import uiReducer from './reducers/uiReducer';
-import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';
+import { loginRequest } from './actions/uiActionCreators';
 
 const store = configureStore({
   reducer: {
     ui: uiReducer
-  }
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: loginRequest
+      }
+    })
 });
 // export const store = createStore(uiReducer, applyMiddleware(thunk));
 const root = ReactDOM.createRoot(document.getElementById('root'));
