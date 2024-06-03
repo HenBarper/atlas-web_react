@@ -15,23 +15,24 @@ import { connect } from 'react-redux';
 class App extends React.Component {
 
   static propTypes = {
-    // isLoggedIn: PropTypes.bool,
+    isLoggedIn: PropTypes.bool,
+    displayDrawer: PropTypes.bool,
     logOut: PropTypes.func,
   }
 
   static defaultProps = {
-    // isLoggedIn: false,
+    isLoggedIn: false,
+    displayDrawer: false,
     logOut: () => {},
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      displayDrawer: false,
       user: {
         email: '',
         password: '',
-        // isLoggedIn: false,
+        isLoggedIn: false,
       },
       logOut: this.logOut,
       logIn: this.logIn,
@@ -64,10 +65,10 @@ class App extends React.Component {
   }
 
   handleDisplayDrawer () {
-    this.setState({ displayDrawer: true });
+    // this.setState({ displayDrawer: true });
   }
   handleHideDrawer() {
-    this.setState({ displayDrawer: false });
+    // this.setState({ displayDrawer: false });
   }
 
   logIn = (email, password) => {
@@ -91,14 +92,12 @@ class App extends React.Component {
   }
 
   markNotificationAsRead = (id) => {
-    // console.log('Notification ' + id + ' is marked as read');
     this.setState(prevState => ({
       listNotifications: prevState.listNotifications.filter(notification => notification.id !== id)
     }));
   }
 
   render() {
-    // const { isLoggedIn } = this.props;
     const { displayDrawer, user, listNotifications } = this.state;
 
     const listCourses = [
@@ -116,7 +115,7 @@ class App extends React.Component {
     return (
       <AppContext.Provider value={{ user: this.state.user, logOut: this.state.logOut, logIn: this.state.logIn, markNotificationAsRead: this.state.markNotificationAsRead }}>
         <Notification
-          displayDrawer={this.state.displayDrawer}
+          displayDrawer={this.props.displayDrawer}
           handleDisplayDrawer={this.handleDisplayDrawer}
           handleHideDrawer={this.handleHideDrawer}
           listNotifications={this.state.listNotifications}
@@ -146,10 +145,17 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+// const mapStateToProps = (state) => {
+//   return {
+//     isLoggedIn: state.isLoggedIn
+//   };
+// };
+
+export const mapStateToProps = (state) => {
   return {
-    isLoggedIn: state.isLoggedIn
-  };
+    isLoggedIn: state.get('isUserLoggedIn'),
+  displayDrawer: state.get('isNotificationDrawerVisible')
+  }
 };
 
 const styles = StyleSheet.create({

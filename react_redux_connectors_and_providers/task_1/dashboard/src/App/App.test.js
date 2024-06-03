@@ -1,26 +1,39 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { StyleSheetTestUtils } from 'aphrodite';
-import App, {mapStateToProps} from './App';
+import { shallow } from 'enzyme';
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+import { fromJS } from 'immutable';
+import App, { mapStateToProps } from './App';
 import Notifications from '../Notifications/Notifications';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import CourseList from '../CourseList/CourseList';
+import { StyleSheetTestUtils } from 'aphrodite';
 import Footer from '../Footer/Footer';
-import AppContext from './AppContext';
-import { fromJS } from 'immutable';
+
+const mockStore = configureStore([]);
+const initialState = fromJS({
+  isUserLoggedIn: false,
+  isNotificationDrawerVisible: false,
+});
+const store = mockStore(initialState);
 
 describe('App component tests', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = shallow(<App />);
-        StyleSheetTestUtils.suppressStyleInjection();
+        StyleSheetTestUtils.suppressStyleInjection(); // If you're using aphrodite
         // global.alert = jest.fn();
-    });
+        wrapper = shallow(
+          <Provider store={store}>
+            <App />
+          </Provider>
+        ).dive();
+      });
 
     afterEach(() => {
-        jest.restoreAllMocks();
+        // jest.restoreAllMocks();
+        wrapper.unmount();
     });
 
     test('App renders without crashing', () => {
@@ -44,28 +57,25 @@ describe('App component tests', () => {
     });
 
     test('CourseList is not displayed when isLoggedIn is false', () => {
-        // wrapper = shallow(<App isLoggedIn={false} />);
         expect(wrapper.find(CourseList).exists()).toBe(false);
     });
 
     test('Login is not displayed when isLoggedIn is true', () => {
-        // wrapper = shallow(<App isLoggedIn={true} />);
-        wrapper.setState({ 
-            user: { 
+        wrapper.setState({
+            user: {
                 email: 'test@example.com',
-                password: '123', isLoggedIn: true 
-            } 
+                password: '123', isLoggedIn: true
+            }
         });
         expect(wrapper.find(Login).exists()).toBe(false);
     });
 
     test('CourseList is displayed when isLoggedIn is true', () => {
-        // wrapper = shallow(<App isLoggedIn={true} />);
-        wrapper.setState({ 
-            user: { 
+        wrapper.setState({
+            user: {
                 email: 'test@example.com',
-                password: '123', isLoggedIn: true 
-            } 
+                password: '123', isLoggedIn: true
+            }
         });
         expect(wrapper.find(CourseList).exists()).toBe(true);
     });
@@ -74,12 +84,11 @@ describe('App component tests', () => {
         const logOutMock = jest.fn(() => {
             wrapper.instance().logOut();
         });
-        // const wrapper = shallow(<App logOut={logOutMock} />);
-        wrapper.setState({ 
-            user: { 
+        wrapper.setState({
+            user: {
                 email: 'test@example.com',
-                password: '123', isLoggedIn: true 
-            } 
+                password: '123', isLoggedIn: true
+            }
         });
         wrapper.setProps({
             logOut: logOutMock
@@ -90,12 +99,11 @@ describe('App component tests', () => {
             ctrlKey: true,
             preventDefault: jest.fn(),
         };
-        
+
         wrapper.instance().handleKeyDown(event);
-    
+
         expect(global.alert).toHaveBeenCalledWith('Logging you out');
         expect(logOutMock).toHaveBeenCalled();
-        // console.log(wrapper.state().user.isLoggedIn);
         expect(wrapper.state().user.isLoggedIn).toBe(false);
     });
 
@@ -131,30 +139,34 @@ describe('App component tests', () => {
                 isLoggedIn: true,
             },
             listNotifications: [
-                { id: 1, type: 'default', value: 'notification 1'},
-                { id: 2, type: 'urgent', value: 'notification 2'},
+                { id: 1, type: 'default', value: 'notification 1' },
+                { id: 2, type: 'urgent', value: 'notification 2' },
                 { id: 3, type: 'default', value: 'notification 3' },
                 { id: 4, type: 'urgent', value: 'notification 4' },
             ],
         });
-        // console.log(wrapper.state('listNotifications'));
         expect(wrapper.state('listNotifications').length).toBe(4);
         wrapper.instance().markNotificationAsRead(2);
         expect(wrapper.state('listNotifications').length).toBe(3);
         expect(wrapper.state('listNotifications')).toEqual([
-            { id: 1, type: 'default', value: 'notification 1'},
+            { id: 1, type: 'default', value: 'notification 1' },
             { id: 3, type: 'default', value: 'notification 3' },
             { id: 4, type: 'urgent', value: 'notification 4' }
         ]);
     });
 });
 
-describe('mapStateToProps tests', () => {
-    test('should map the state correctly', () => {
-        const mockState = fromJS({
-          isUserLoggedIn: true
+// New suite for mapStateToProps
+describe('mapStateToProps', () => {
+    test('returns the correct object when passing the state', () => {
+        const state = fromJS({
+            isUserLoggedIn: true,
+            isNotificationDrawerVisible: true,
         });
-        const state = mapStateToProps(mockState);
-        expect(state.isLoggedIn).toBe(true);
+        const expectedProps = {
+            isLoggedIn: true,
+            displayDrawer: true,
+        };
+        expect(mapStateToProps(state)).toEqual(expectedProps);
     });
 });
