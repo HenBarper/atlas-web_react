@@ -11,6 +11,7 @@
 8. [Task 4. Connect your actions creators](#connectYourActionsCreators)
 9. [Task 5. Refactor your code](#refactorYourCode)
 10. [Task 6. Update your tests](#updateYourTests)
+11. [Task 7. Async actions & Thunk Middleware](#asyncActionsThunkMiddleware)
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
@@ -156,5 +157,19 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_redux_connectors_and_providers
 - File: task_1/dashboard/src/App/App.test.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 7. Async actions & Thunk Middleware
+<a name="asyncActionsThunkMiddleware"></a>
+
+#### Let’s implement the LoginRequest / logout actions creators accross the entire application. LoginRequest is calling an API and is Async. Therefore, Redux will not support it. We will need to use a middleware
+
+#### Install redux-thunk within your project. And in the index.js file, apply the middleware to your store
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_redux_connectors_and_providers
+- File: task_2/dashboard/src/index.js
 
 [Back to top](#Sections)
