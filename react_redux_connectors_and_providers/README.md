@@ -8,6 +8,7 @@
 5. [Task 1. Create a small store](#createSmallStore)
 6. [Task 2. Test MapStateToProps](#testMapStateProps)
 7. [Task 3. Update mapStateToProps](#updateMapStateToProps)
+8. [Task 4. Connect your actions creators](#connectYourActionsCreators)
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
@@ -98,6 +99,21 @@ ________________________________________________________________________________
 ### In the App.js file:
 - Update the mapStateToProps function to also pass to the component the value for displayDrawer. It should be connected to the Reducer attribute isNotificationDrawerVisible
 - Update the render function of the component to use the value displayDrawer coming from the props instead of the state
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_redux_connectors_and_providers
+- File: task_1/dashboard/src/App/App.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 4. Connect your actions creators
+<a name="connectYourActionsCreators"></a>
+
+### In the App.js file:
+- Connect to the component the actions creators displayNotificationDrawer and hideNotificationDrawer
+- You should use the simplified version for the mapDispatchToProps. No need to import bindActionCreators
+- Modify the render function of the component to use the functions passed within the props instead of the action within the Class component
 
 #### Repo:
 - GitHub repository: atlas-web_react

@@ -11,6 +11,7 @@ import Footer from '../Footer/Footer';
 import { getLatestNotification } from '../utils/utils';
 import AppContext from './AppContext';
 import { connect } from 'react-redux';
+import { displayNotificationDrawer, hideNotificationDrawer } from '../actions/uiActionCreators';
 
 class App extends React.Component {
 
@@ -18,12 +19,16 @@ class App extends React.Component {
     isLoggedIn: PropTypes.bool,
     displayDrawer: PropTypes.bool,
     logOut: PropTypes.func,
+    displayNotificationDrawer: PropTypes.func,
+    hideNotificationDrawer: PropTypes.func
   }
 
   static defaultProps = {
     isLoggedIn: false,
     displayDrawer: false,
     logOut: () => {},
+    displayNotificationDrawer: () => {},
+    hideNotificationDrawer: () => {}
   }
 
   constructor(props) {
@@ -65,10 +70,10 @@ class App extends React.Component {
   }
 
   handleDisplayDrawer () {
-    // this.setState({ displayDrawer: true });
+    this.props.displayNotificationDrawer();
   }
   handleHideDrawer() {
-    // this.setState({ displayDrawer: false });
+    this.props.hideNotificationDrawer();
   }
 
   logIn = (email, password) => {
