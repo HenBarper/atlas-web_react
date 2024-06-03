@@ -20,7 +20,9 @@ class App extends React.Component {
     displayDrawer: PropTypes.bool,
     logOut: PropTypes.func,
     displayNotificationDrawer: PropTypes.func,
-    hideNotificationDrawer: PropTypes.func
+    hideNotificationDrawer: PropTypes.func,
+    listNotifications: PropTypes.array,
+    markNotificationAsRead: PropTypes.func,
   }
 
   static defaultProps = {
@@ -28,7 +30,9 @@ class App extends React.Component {
     displayDrawer: false,
     logOut: () => {},
     displayNotificationDrawer: () => {},
-    hideNotificationDrawer: () => {}
+    hideNotificationDrawer: () => {},
+    listNotifications: [],
+    markNotificationAsRead: () => {},
   }
 
   constructor(props) {
@@ -39,9 +43,9 @@ class App extends React.Component {
         password: '',
         isLoggedIn: false,
       },
-      logOut: this.logOut,
-      logIn: this.logIn,
-      markNotificationAsRead: this.markNotificationAsRead,
+      // logOut: this.logOut,
+      // logIn: this.logIn,
+      // markNotificationAsRead: this.markNotificationAsRead,
       listNotifications: [
         { id: 1, type: 'default', value: 'New Course Available'},
         { id: 2, type: 'urgent', value: 'New Resume Available'},
@@ -49,8 +53,8 @@ class App extends React.Component {
       ],
     };
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
-    this.handleHideDrawer = this.handleHideDrawer.bind(this);
+    // this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    // this.handleHideDrawer = this.handleHideDrawer.bind(this);
   }
 
   componentDidMount() {
@@ -69,12 +73,12 @@ class App extends React.Component {
     }
   }
 
-  handleDisplayDrawer () {
-    this.props.displayNotificationDrawer();
-  }
-  handleHideDrawer() {
-    this.props.hideNotificationDrawer();
-  }
+  // handleDisplayDrawer () {
+  //   this.props.displayNotificationDrawer();
+  // }
+  // handleHideDrawer() {
+  //   this.props.hideNotificationDrawer();
+  // }
 
   logIn = (email, password) => {
     this.setState({
@@ -96,35 +100,30 @@ class App extends React.Component {
     });
   }
 
-  markNotificationAsRead = (id) => {
-    this.setState(prevState => ({
-      listNotifications: prevState.listNotifications.filter(notification => notification.id !== id)
-    }));
-  }
+  // markNotificationAsRead = (id) => {
+  //   this.setState(prevState => ({
+  //     listNotifications: prevState.listNotifications.filter(notification => notification.id !== id)
+  //   }));
+  // }
 
   render() {
-    const { displayDrawer, user, listNotifications } = this.state;
+    const { user } = this.state;
+    const { displayDrawer, listNotifications, markNotificationAsRead } = this.props;
 
     const listCourses = [
       { id: 1, name: 'ES6', credit: 60 },
       { id: 2, name: 'Webpack', credit: 20 },
       { id: 3, name: 'React', credit: 40 },
     ]
-  
-    // const listNotifications = [
-    //   { id: 1, type: 'default', value: 'New Course Available'},
-    //   { id: 2, type: 'urgent', value: 'New Resume Available'},
-    //   { id: 3, html: { __html: getLatestNotification() }, type: 'urgent' }
-    // ]
 
     return (
-      <AppContext.Provider value={{ user: this.state.user, logOut: this.state.logOut, logIn: this.state.logIn, markNotificationAsRead: this.state.markNotificationAsRead }}>
+      <AppContext.Provider value={{ user: this.state.user, logOut: this.logOut, logIn: this.logIn, markNotificationAsRead }}>
         <Notification
-          displayDrawer={this.props.displayDrawer}
-          handleDisplayDrawer={this.handleDisplayDrawer}
-          handleHideDrawer={this.handleHideDrawer}
-          listNotifications={this.state.listNotifications}
-          markNotificationAsRead={this.state.markNotificationAsRead}
+          displayDrawer={displayDrawer}
+          handleDisplayDrawer={this.props.displayNotificationDrawer}
+          handleHideDrawer={this.props.hideNotificationDrawer}
+          listNotifications={listNotifications}
+          markNotificationAsRead={markNotificationAsRead}
         />
         <div className='App'>
           <Header />
@@ -159,8 +158,13 @@ class App extends React.Component {
 export const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.get('isUserLoggedIn'),
-  displayDrawer: state.get('isNotificationDrawerVisible')
+    displayDrawer: state.get('isNotificationDrawerVisible'),
   }
+};
+
+const mapDispatchToProps = {
+  displayNotificationDrawer,
+  hideNotificationDrawer,
 };
 
 const styles = StyleSheet.create({
@@ -199,4 +203,4 @@ const styles = StyleSheet.create({
 });
 
 // export default App;
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
