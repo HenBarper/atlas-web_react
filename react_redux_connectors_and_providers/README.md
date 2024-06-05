@@ -15,6 +15,7 @@
 12. [Task 8. Connect LoginRequest to the App](#connectLoginRequestToTheApp)
 13. [Task 9. Connect user state to the Footer](#connectUserStateToTheFooter)
 14. [Task 10. Connect Logout action creator to the Header](#connectLogoutActionCreatorToHeader)
+15. [Task 11. Modify the uiReducer](#modifyTheUiReducer)
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
@@ -223,5 +224,19 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_redux_connectors_and_providers
 - File: task_2/dashboard/src/Header/Header.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 11. Modify the uiReducer
+<a name="modifyTheUiReducer"></a>
+
+### Now that we can have the entire login request and the entire feedback loop, let’s modify a few things within the reducer:
+- When the action LOGIN is passed, set the user within the state to the one passed within the action
+- When the LOGOUT action is passed, make sure to set the user to null
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_redux_connectors_and_providers
+- File: task_2/dashboard/src/reducers/uiReducer.js
 
 [Back to top](#Sections)
