@@ -1,13 +1,16 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite';
+import { connect } from 'react-redux';
 import logo from '../assets/holberton-logo.jpg';
-import AppContext from '../App/AppContext';
+import { logout } from '../actions/uiActionCreators';
+// import AppContext from '../App/AppContext';
 
 class Header extends React.Component {
-  static contextType = AppContext;
+  // static contextType = AppContext;
 
   render() {
-    const { user, logOut } = this.context;
+    // const { user, logOut } = this.context;
+    const { user, logOut } = this.props;
 
     return (
       <>
@@ -25,6 +28,16 @@ class Header extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = {
+  logout
+};
 
 const styles = StyleSheet.create({
   appHeader: {
@@ -50,16 +63,5 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Header;
-
-// function Header() {
-//   return (
-//     <>
-//       <header className='App-header'>
-//         <img src={logo} className='App-logo' alt='logo' />
-//         <h1>School Dashboard</h1>
-//       </header>
-//       <hr></hr>
-//     </>
-//   );
-// }
+// export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

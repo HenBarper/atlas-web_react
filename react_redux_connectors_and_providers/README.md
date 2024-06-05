@@ -13,6 +13,8 @@
 10. [Task 6. Update your tests](#updateYourTests)
 11. [Task 7. Async actions & Thunk Middleware](#asyncActionsThunkMiddleware)
 12. [Task 8. Connect LoginRequest to the App](#connectLoginRequestToTheApp)
+13. [Task 9. Connect user state to the Footer](#connectUserStateToTheFooter)
+14. [Task 10. Connect Logout action creator to the Header](#connectLogoutActionCreatorToHeader)
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
@@ -204,5 +206,22 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_redux_connectors_and_providers
 - File: task_2/dashboard/src/Footer/Footer.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 10. Connect Logout action creator to the Header
+<a name="connectLogoutActionCreatorToHeader"></a>
+
+### Modify the file Header/Header.js
+- Create a mapStateToProps function
+- Map the user props to the user within the Redux state
+- Connect the Header component to the function you created
+- Connect the Header component to the logout action creator
+- Modify the render function and remove any use of the Context. Instead use the user prop. When the user clicks on the link, it should now dispatch the logout action creator
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_redux_connectors_and_providers
+- File: task_2/dashboard/src/Header/Header.js
 
 [Back to top](#Sections)
