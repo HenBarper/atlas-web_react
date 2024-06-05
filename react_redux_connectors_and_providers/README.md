@@ -16,6 +16,7 @@
 13. [Task 9. Connect user state to the Footer](#connectUserStateToTheFooter)
 14. [Task 10. Connect Logout action creator to the Header](#connectLogoutActionCreatorToHeader)
 15. [Task 11. Modify the uiReducer](#modifyTheUiReducer)
+16. [Task 12. Modify the test suites](#modifyTheTestSuites)
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
@@ -238,5 +239,32 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_redux_connectors_and_providers
 - File: task_2/dashboard/src/reducers/uiReducer.js
+
+[Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 12. Modify the test suites
+<a name="modifyTheTestSuites"></a>
+
+### Modify the test suites of the different components you modified:
+- In the App.test.js, Footer.test.js, and Header.test.js to import the Stateless components instead of the connected component
+- Remove any use of the mount function, and convert everything to use the shallow function
+- You should remove any use of setState within the tests and pass directly the props to the stateless components
+- Remove any test linked to the login, logout function within App, and Header
+- Add a test in uiReducer to support the new action you just created
+
+### Tips:
+- At this point your app should be functional and able to display/hide the drawer, login/logout using the Redux state
+- Remember that the state of uiReducer is using Map from Immutable
+- You can now see that your components logic is simplified. They only respond to props change. The logic is happening within the action creators
+
+### Requirements:
+- Do not forget to add defaultProps and PropTypes to any component receiving props
+- No error should be displayed within the console
+- All the tests in the project should pass
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_redux_connectors_and_providers
+- File: task_2/dashboard/src/App/App.test.js, task_2/dashboard/src/Footer/Footer.test.js, task_2/dashboard/src/Header/Header.test.js, task_2/dashboard/src/reducers/uiReducer.test.js
 
 [Back to top](#Sections)

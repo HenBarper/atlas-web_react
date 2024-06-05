@@ -13,119 +13,101 @@ import Footer from '../Footer/Footer';
 
 const mockStore = configureStore([]);
 const initialState = fromJS({
-  isUserLoggedIn: false,
-  isNotificationDrawerVisible: false,
-  notifications: [],
+  ui: {
+    isUserLoggedIn: false,
+    isNotificationDrawerVisible: false,
+    notifications: [],
+  },
 });
 const store = mockStore(initialState);
 
 describe('App component tests', () => {
-    let wrapper;
+  let wrapper;
 
-    beforeEach(() => {
-        StyleSheetTestUtils.suppressStyleInjection(); // If you're using aphrodite
-        wrapper = shallow(
-          <Provider store={store}>
-            <App />
-          </Provider>
-        ).dive();
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+    wrapper = shallow(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    ).dive();
+  });
+
+  afterEach(() => {
+    wrapper.unmount();
+  });
+
+  test('App renders without crashing', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+
+  test('App contains the Notifications component', () => {
+    expect(wrapper.find(Notifications).exists()).toBe(true);
+  });
+
+  test('App contains the Header component', () => {
+    expect(wrapper.find(Header).exists()).toBe(true);
+  });
+
+  test('App contains the Login component', () => {
+    expect(wrapper.find(Login).exists()).toBe(true);
+  });
+
+  test('App contains the Footer component', () => {
+    expect(wrapper.find(Footer).exists()).toBe(true);
+  });
+
+  test('CourseList is not displayed when isLoggedIn is false', () => {
+    expect(wrapper.find(CourseList).exists()).toBe(false);
+  });
+
+  test('CourseList is displayed when isLoggedIn is true', () => {
+    const loggedInState = fromJS({
+      ui: {
+        isUserLoggedIn: true,
+        isNotificationDrawerVisible: false,
+        notifications: [],
+      },
     });
+    const loggedInStore = mockStore(loggedInState);
+    const loggedInWrapper = shallow(
+      <Provider store={loggedInStore}>
+        <App />
+      </Provider>
+    ).dive();
+    expect(loggedInWrapper.find(CourseList).exists()).toBe(true);
+  });
 
-    afterEach(() => {
-        wrapper.unmount();
+  test('Login is not displayed when isLoggedIn is true', () => {
+    const loggedInState = fromJS({
+      ui: {
+        isUserLoggedIn: true,
+        isNotificationDrawerVisible: false,
+        notifications: [],
+      },
     });
+    const loggedInStore = mockStore(loggedInState);
+    const loggedInWrapper = shallow(
+      <Provider store={loggedInStore}>
+        <App />
+      </Provider>
+    ).dive();
+    expect(loggedInWrapper.find(Login).exists()).toBe(false);
+  });
 
-    test('App renders without crashing', () => {
-        expect(wrapper.exists()).toBe(true);
+  test('verify mapStateToProps returns the correct object', () => {
+    const state = fromJS({
+      ui: {
+        isUserLoggedIn: true,
+        isNotificationDrawerVisible: true,
+        notifications: [],
+      },
     });
-
-    test('App contains the Notifications component', () => {
-        expect(wrapper.find(Notifications).exists()).toBe(true);
-    });
-
-    test('App contains the Header component', () => {
-        expect(wrapper.find(Header).exists()).toBe(true);
-    });
-
-    test('App contains the Login component', () => {
-        expect(wrapper.find(Login).exists()).toBe(true);
-    });
-
-    test('App contains the Footer component', () => {
-        expect(wrapper.find(Footer).exists()).toBe(true);
-    });
-
-    test('CourseList is not displayed when isLoggedIn is false', () => {
-        expect(wrapper.find(CourseList).exists()).toBe(false);
-    });
-
-    test('CourseList is displayed when isLoggedIn is true', () => {
-        const loggedInState = fromJS({
-            isUserLoggedIn: true,
-            isNotificationDrawerVisible: false,
-            notifications: [],
-        });
-        const loggedInStore = mockStore(loggedInState);
-        const loggedInWrapper = shallow(
-            <Provider store={loggedInStore}>
-                <App />
-            </Provider>
-        ).dive();
-        expect(loggedInWrapper.find(CourseList).exists()).toBe(true);
-    });
-
-    test('Login is not displayed when isLoggedIn is true', () => {
-        const loggedInState = fromJS({
-            isUserLoggedIn: true,
-            isNotificationDrawerVisible: false,
-            notifications: [],
-        });
-        const loggedInStore = mockStore(loggedInState);
-        const loggedInWrapper = shallow(
-            <Provider store={loggedInStore}>
-                <App />
-            </Provider>
-        ).dive();
-        expect(loggedInWrapper.find(Login).exists()).toBe(false);
-    });
-
-    test('verify that when the keys control and h are pressed the logOut function, passed as a prop, is called and the alert function is called with the string Logging you out', () => {
-        const logOutMock = jest.fn();
-        const loggedInState = fromJS({
-            isUserLoggedIn: true,
-            isNotificationDrawerVisible: false,
-            notifications: [],
-        });
-        const loggedInStore = mockStore(loggedInState);
-        const loggedInWrapper = shallow(
-            <Provider store={loggedInStore}>
-                <App logOut={logOutMock} />
-            </Provider>
-        ).dive();
-
-        const event = {
-            key: 'h',
-            ctrlKey: true,
-            preventDefault: jest.fn(),
-        };
-
-        loggedInWrapper.find(App).instance().handleKeyDown(event);
-
-        expect(global.alert).toHaveBeenCalledWith('Logging you out');
-        expect(logOutMock).toHaveBeenCalled();
-    });
-
-    test('verify mapStateToProps returns the correct object', () => {
-        const state = fromJS({
-            isUserLoggedIn: true,
-            isNotificationDrawerVisible: true,
-            notifications: [],
-        });
-        const expectedProps = {
-            isLoggedIn: true,
-            displayDrawer: true,
-            listNotifications: [],
-        };
-        expect(mapStateToProps(state)).toEqual(expectedProps);
-    });
+    const expectedProps = {
+      isLoggedIn: true,
+      displayDrawer: true,
+      listNotifications: [],
+    };
+    expect(mapStateToProps(state)).toEqual(expectedProps);
+  });
 });

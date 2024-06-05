@@ -1,58 +1,57 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+import { fromJS } from 'immutable';
 import Footer from './Footer';
-import AppContext from '../App/AppContext';
+
+const mockStore = configureStore([]);
+const initialState = fromJS({
+  ui: {
+    isUserLoggedIn: false,
+  },
+});
+const store = mockStore(initialState);
 
 describe('Footer component tests', () => {
-    let wrapper;
-    let contextValue;
+  let wrapper;
 
-    // This will run before each test and create a shallow render of the App component
-    beforeEach(() => {
-        wrapper = shallow(<Footer />);
-    });
+  beforeEach(() => {
+    wrapper = shallow(
+      <Provider store={store}>
+        <Footer />
+      </Provider>
+    ).dive();
+  });
 
-    test('Footer renders without crashing', () => {
-        expect(wrapper.exists()).toBe(true);
-    });
+  test('Footer renders without crashing', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
 
-    test('Footer renders a div with the class App-footer', () => {
-      expect(wrapper.find('.App-footer').length).toBe(1);
-    });
+  test('Footer renders a div with the class App-footer', () => {
+    expect(wrapper.find('.App-footer').length).toBe(1);
+  });
 
-    test('Header renders an img element', () => {
-      expect(wrapper.text()).toContain('Copyright');
-    });
+  test('Footer contains the correct text', () => {
+    expect(wrapper.text()).toContain('Copyright');
+  });
 
-    test('verify that the contact link is not displayed when the user is logged out within the context', () => {
-      contextValue = {
-        user: {
-            email: 'test@example.com',
-            password: '',
-            isLoggedIn: false
-        },
-      };
-      wrapper = mount(
-          <AppContext.Provider value={contextValue}>
-              <Footer />
-          </AppContext.Provider>
-      );
-      expect(wrapper.find('.contact-us').exists()).toBe(false);
-    });
+  test('verify that the contact link is not displayed when the user is logged out', () => {
+    expect(wrapper.find('.contact-us').exists()).toBe(false);
+  });
 
-    test('verify that the contact link is displayed when the user is logged in within the context', () => {
-      contextValue = {
-        user: {
-            email: 'test@example.com',
-            password: '',
-            isLoggedIn: true
-        },
-      };
-      wrapper = mount(
-          <AppContext.Provider value={contextValue}>
-              <Footer />
-          </AppContext.Provider>
-      );
-      expect(wrapper.find('.contact-us').exists()).toBe(true);
+  test('verify that the contact link is displayed when the user is logged in', () => {
+    const loggedInState = fromJS({
+      ui: {
+        isUserLoggedIn: true,
+      },
     });
+    const loggedInStore = mockStore(loggedInState);
+    const loggedInWrapper = shallow(
+      <Provider store={loggedInStore}>
+        <Footer />
+      </Provider>
+    ).dive();
+    expect(loggedInWrapper.find('.contact-us').exists()).toBe(true);
+  });
 });
