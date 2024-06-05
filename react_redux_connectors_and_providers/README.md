@@ -190,3 +190,19 @@ ________________________________________________________________________________
 - File: task_2/dashboard/src/App/App.js
 
 [Back to top](#Sections)
+__________________________________________________________________________________________________________________________________________
+## Task 9. Connect user state to the Footer
+<a name="connectUserStateToTheFooter"></a>
+
+### Modify the file Footer/Footer.js
+- Create a mapStateToProps function
+- Map the user props to the user within the Redux state
+- Connect the Footer component to the function you created
+- Modify the render function and remove any use of the Context. Instead use the user prop
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_redux_connectors_and_providers
+- File: task_2/dashboard/src/Footer/Footer.js
+
+[Back to top](#Sections)
