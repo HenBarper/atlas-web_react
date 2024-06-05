@@ -12,6 +12,7 @@
 9. [Task 5. Refactor your code](#refactorYourCode)
 10. [Task 6. Update your tests](#updateYourTests)
 11. [Task 7. Async actions & Thunk Middleware](#asyncActionsThunkMiddleware)
+12. [Task 8. Connect LoginRequest to the App](#connectLoginRequestToTheApp)
 __________________________________________________________________________________________________________________________________________
 ## Learning Objectives
 <a name="learningObjectives"></a>
@@ -171,5 +172,21 @@ ________________________________________________________________________________
 - GitHub repository: atlas-web_react
 - Directory: react_redux_connectors_and_providers
 - File: task_2/dashboard/src/index.js
+
+[Back to top](#Sections)
+
+__________________________________________________________________________________________________________________________________________
+## Task 8. Connect LoginRequest to the App
+<a name="connectLoginRequestToTheApp"></a>
+
+### Modify the file App/App.js:
+- Connect the action creator loginRequest and map it to the login prop
+- Modify the component to use the new login function from the props instead of the one within the class
+- Refactor the component to remove any login or logout function and bind
+
+#### Repo:
+- GitHub repository: atlas-web_react
+- Directory: react_redux_connectors_and_providers
+- File: task_2/dashboard/src/App/App.js
 
 [Back to top](#Sections)

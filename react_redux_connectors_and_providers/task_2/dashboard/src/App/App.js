@@ -11,28 +11,31 @@ import Footer from '../Footer/Footer';
 import { getLatestNotification } from '../utils/utils';
 import AppContext from './AppContext';
 import { connect } from 'react-redux';
-import { displayNotificationDrawer, hideNotificationDrawer } from '../actions/uiActionCreators';
+import { displayNotificationDrawer, hideNotificationDrawer, login } from '../actions/uiActionCreators';
 
 class App extends React.Component {
 
   static propTypes = {
     isLoggedIn: PropTypes.bool,
     displayDrawer: PropTypes.bool,
-    logOut: PropTypes.func,
+    // logOut: PropTypes.func,
+    login: PropTypes.func,
     displayNotificationDrawer: PropTypes.func,
-    hideNotificationDrawer: PropTypes.func,
+    // hideNotificationDrawer: PropTypes.func,
     listNotifications: PropTypes.array,
-    markNotificationAsRead: PropTypes.func,
+    // markNotificationAsRead: PropTypes.func,
   }
 
   static defaultProps = {
     isLoggedIn: false,
     displayDrawer: false,
-    logOut: () => {},
+    // logOut: () => {},
+    login: () => {},
     displayNotificationDrawer: () => {},
-    hideNotificationDrawer: () => {},
+    // hideNotificationDrawer: () => {},
     listNotifications: [],
-    markNotificationAsRead: () => {},
+    // markNotificationAsRead: () => {},
+    listCourses: []
   }
 
   constructor(props) {
@@ -44,7 +47,7 @@ class App extends React.Component {
         isLoggedIn: false,
       },
       // logOut: this.logOut,
-      // logIn: this.logIn,
+      logIn: this.logIn,
       // markNotificationAsRead: this.markNotificationAsRead,
       listNotifications: [
         { id: 1, type: 'default', value: 'New Course Available'},
@@ -100,11 +103,11 @@ class App extends React.Component {
     });
   }
 
-  // markNotificationAsRead = (id) => {
-  //   this.setState(prevState => ({
-  //     listNotifications: prevState.listNotifications.filter(notification => notification.id !== id)
-  //   }));
-  // }
+  markNotificationAsRead = (id) => {
+    this.setState(prevState => ({
+      listNotifications: prevState.listNotifications.filter(notification => notification.id !== id)
+    }));
+  }
 
   render() {
     const { user } = this.state;
@@ -117,11 +120,11 @@ class App extends React.Component {
     ]
 
     return (
-      <AppContext.Provider value={{ user: this.state.user, logOut: this.logOut, logIn: this.logIn, markNotificationAsRead }}>
+      <AppContext.Provider value={{ user: this.state.user, login: this.logIn, logOut: this.logOut }}>
         <Notification
           displayDrawer={displayDrawer}
-          handleDisplayDrawer={this.props.displayNotificationDrawer}
-          handleHideDrawer={this.props.hideNotificationDrawer}
+          // handleDisplayDrawer={this.props.displayNotificationDrawer}
+          // handleHideDrawer={this.props.hideNotificationDrawer}
           listNotifications={listNotifications}
           markNotificationAsRead={markNotificationAsRead}
         />
@@ -165,6 +168,7 @@ export const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   displayNotificationDrawer,
   hideNotificationDrawer,
+  login
 };
 
 const styles = StyleSheet.create({
